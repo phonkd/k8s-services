@@ -3,6 +3,7 @@ kind: Namespace
 metadata:
   labels:
     kubernetes.io/metadata.name: wg
+    pod-security.kubernetes.io: warn
   name: wg
 spec:
   finalizers:
@@ -64,7 +65,7 @@ spec:
             - name: WG_HOST
               value: "phonkd.net"
             - name: PASSWORD
-              value: "Passsworddd"
+              value: "123"
           ports:
             - containerPort: 51820
               protocol: UDP
@@ -72,8 +73,7 @@ spec:
           securityContext:
             capabilities:
               add:
-                - NET_ADMIN
-                - SYS_MODULE
+                - ALL
           volumeMounts:
             - mountPath: /etc/wireguard
               name: wg-easy-storage
@@ -89,16 +89,14 @@ metadata:
   name: wg-easy
   namespace: wg
 spec:
-  type: NodePort # You can adjust this to LoadBalancer or ClusterIP based on your needs
+  type: LoadBalancer # You can adjust this to LoadBalancer or ClusterIP based on your needs
   ports:
     - port: 51820
       targetPort: 51820
-      nodePort: 30820
       protocol: UDP
       name: udp-service
     - port: 51821
       targetPort: 51821
-      nodePort: 30821
       protocol: TCP
       name: tcp-service
   selector:
