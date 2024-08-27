@@ -19,7 +19,7 @@ metadata:
   labels:
     type: local
 spec:
-  storageClassName: manual
+  storageClassName: longhorn
   capacity:
     storage: 1Gi # Adjust the size based on your requirements
   accessModes:
@@ -34,7 +34,7 @@ metadata:
   name: wg-easy-pvc
   namespace: wg
 spec:
-  storageClassName: manual
+  storageClassName: longhorn-system
   accessModes:
     - ReadWriteOnce
   resources:
