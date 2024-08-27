@@ -4,6 +4,8 @@ metadata:
   labels:
     kubernetes.io/metadata.name: wg
     pod-security.kubernetes.io: warn
+  annotations:
+    argocd.argoproj.io/sync-wave: "-2"
   name: wg
 spec:
   finalizers:
@@ -63,9 +65,15 @@ spec:
           image: ghcr.io/wg-easy/wg-easy
           env:
             - name: WG_HOST
-              value: "phonkd.net"
+              valueFrom:
+                secretKeyRef:
+                  name: wg-creds
+                  key: WG_HOST
             - name: PASSWORD
-              value: "123"
+              valueFrom:
+                secretKeyRef:
+                  name: wg-creds
+                  key: PASSWORD
           ports:
             - containerPort: 51820
               protocol: UDP
