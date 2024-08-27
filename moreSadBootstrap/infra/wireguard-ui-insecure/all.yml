@@ -10,22 +10,22 @@ spec:
 status:
   phase: Active
 
----
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: wg-easy-pv
-  namespace: wg
-  labels:
-    type: local
-spec:
-  storageClassName: longhorn
-  capacity:
-    storage: 1Gi # Adjust the size based on your requirements
-  accessModes:
-    - ReadWriteOnce
-  hostPath:
-    path: "/home/phonkd/.wg-easy"
+#---
+#apiVersion: v1
+#kind: PersistentVolume
+#metadata:
+#  name: wg-easy-pv
+#  namespace: wg
+#  labels:
+#    type: local
+#spec:
+#  storageClassName: longhorn
+#  capacity:
+#    storage: 1Gi # Adjust the size based on your requirements
+#  accessModes:
+#    - ReadWriteOnce
+#  hostPath:
+#    path: "/home/phonkd/.wg-easy"
 
 ---
 apiVersion: v1
@@ -34,7 +34,7 @@ metadata:
   name: wg-easy-pvc
   namespace: wg
 spec:
-  storageClassName: longhorn-system
+  storageClassName: longhorn
   accessModes:
     - ReadWriteOnce
   resources:
