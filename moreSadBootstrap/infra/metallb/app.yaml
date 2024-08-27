@@ -13,3 +13,7 @@ spec:
     targetRevision: 0.14.8
     chart: metallb
   project: default
+  syncPolicy:
+    automated:
+      self-Heal: true
+      prune: true
