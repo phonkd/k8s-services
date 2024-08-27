@@ -2,6 +2,7 @@ apiVersion: metallb.io/v1beta1
 kind: IPAddressPool
 metadata:
   name: default
+  namespace: default
   annotations:
     argocd.argoproj.io/sync-wave: "2"
 spec:
@@ -13,6 +14,7 @@ apiVersion: metallb.io/v1beta1
 kind: L2Advertisement
 metadata:
   name: default
+  namespace: default
 spec:
   ipAddressPools:
     - default
