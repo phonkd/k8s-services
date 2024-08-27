@@ -40,9 +40,6 @@ spec:
   resources:
     requests:
       storage: 1Gi
-  selector:
-    matchLabels:
-      type: local
 
 ---
 apiVersion: apps/v1
