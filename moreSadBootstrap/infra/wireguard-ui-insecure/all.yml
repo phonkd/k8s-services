@@ -1,0 +1,120 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  creationTimestamp: "2023-09-16T17:59:59Z"
+  labels:
+    kubernetes.io/metadata.name: wg
+  name: wg
+  resourceVersion: "706188"
+  uid: 8400db4b-f867-4ab2-b37d-958e8d4984cc
+spec:
+  finalizers:
+    - kubernetes
+status:
+  phase: Active
+
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: wg-easy-pv
+  namespace: wg
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 1Gi # Adjust the size based on your requirements
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/home/phonkd/.wg-easy"
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: wg-easy-pvc
+  namespace: wg
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  selector:
+    matchLabels:
+      type: local
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wg-easy
+  namespace: wg
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wg-easy
+  template:
+    metadata:
+      labels:
+        app: wg-easy
+    spec:
+      containers:
+        - name: wg-easy
+          image: weejewel/wg-easy
+          env:
+            - name: WG_HOST
+              value: "phonkd.net"
+            - name: PASSWORD
+              value: "Passsworddd"
+          ports:
+            - containerPort: 51820
+              protocol: UDP
+            - containerPort: 51821
+          securityContext:
+            capabilities:
+              add: ["NET_ADMIN", "SYS_MODULE"]
+          volumeMounts:
+            - mountPath: /etc/wireguard
+              name: wg-easy-storage
+      volumes:
+        - name: wg-easy-storage
+          persistentVolumeClaim:
+            claimName: wg-easy-pvc
+      initContainers:
+        - name: set-sysctl
+          image: busybox
+          command:
+            [
+              "sh",
+              "-c",
+              "sysctl -w net.ipv4.conf.all.src_valid_mark=1 && sysctl -w net.ipv4.ip_forward=1",
+            ]
+          securityContext:
+            privileged: true
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: wg-easy
+  namespace: wg
+spec:
+  type: NodePort # You can adjust this to LoadBalancer or ClusterIP based on your needs
+  ports:
+    - port: 51820
+      targetPort: 51820
+      nodePort: 30820
+      protocol: UDP
+      name: udp-service
+    - port: 51821
+      targetPort: 51821
+      nodePort: 30821
+      protocol: TCP
+      name: tcp-service
+  selector:
+    app: wg-easy

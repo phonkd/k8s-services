@@ -1,0 +1,6 @@
+resources:
+  - wireguard-ui-insecure/
+  - nginx-ingress-controller/
+  - metrics-server
+  - metallb/metallb-ip-pool.yaml
+  - letsencrypt-cert-manager/
