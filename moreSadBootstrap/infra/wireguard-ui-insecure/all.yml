@@ -59,7 +59,7 @@ spec:
     spec:
       containers:
         - name: wg-easy
-          image: weejewel/wg-easy
+          image: ghcr.io/wg-easy/wg-easy
           env:
             - name: WG_HOST
               value: "phonkd.net"
@@ -71,7 +71,9 @@ spec:
             - containerPort: 51821
           securityContext:
             capabilities:
-              add: ["NET_ADMIN", "SYS_MODULE"]
+              add:
+                - NET_ADMIN
+                - SYS_MODULE
           volumeMounts:
             - mountPath: /etc/wireguard
               name: wg-easy-storage
@@ -79,17 +81,6 @@ spec:
         - name: wg-easy-storage
           persistentVolumeClaim:
             claimName: wg-easy-pvc
-      initContainers:
-        - name: set-sysctl
-          image: busybox
-          command:
-            [
-              "sh",
-              "-c",
-              "sysctl -w net.ipv4.conf.all.src_valid_mark=1 && sysctl -w net.ipv4.ip_forward=1",
-            ]
-          securityContext:
-            privileged: true
 
 ---
 apiVersion: v1
