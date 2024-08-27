@@ -1,12 +1,9 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  creationTimestamp: "2023-09-16T17:59:59Z"
   labels:
     kubernetes.io/metadata.name: wg
   name: wg
-  resourceVersion: "706188"
-  uid: 8400db4b-f867-4ab2-b37d-958e8d4984cc
 spec:
   finalizers:
     - kubernetes
