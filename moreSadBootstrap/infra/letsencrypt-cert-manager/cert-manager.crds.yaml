@@ -23,8 +23,8 @@ metadata:
     app.kubernetes.io/instance: "cert-manager"
     # Generated labels
     app.kubernetes.io/version: "v1.14.4"
-    annotations:
-      argocd.argoproj.io/sync-wave: "2"
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
 spec:
   group: cert-manager.io
   names:
