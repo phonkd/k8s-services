@@ -13,9 +13,11 @@ spec:
     targetRevision: 0.2.3
     chart: paperless-ngx
     helm:
-      parameters:
-        - name: "paperless.data.pvc.storageClass"
-          value: "longhorn"
+      values: |
+        paperless:
+          data:
+            pvc:
+              storageclass: longhorn
   sources: []
   project: default
   syncPolicy:
