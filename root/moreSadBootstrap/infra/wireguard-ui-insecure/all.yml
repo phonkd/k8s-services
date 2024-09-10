@@ -69,11 +69,11 @@ spec:
                 secretKeyRef:
                   name: wg-creds
                   key: WG_HOST
-            - name: PASSWORD
+            - name: PASSWORD_HASH
               valueFrom:
                 secretKeyRef:
                   name: wg-creds
-                  key: PASSWORD
+                  key: PASSWORD_HASH
           ports:
             - containerPort: 51820
               protocol: UDP
