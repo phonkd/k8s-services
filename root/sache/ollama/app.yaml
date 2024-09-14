@@ -26,6 +26,8 @@ spec:
           value: 'true'
         - name: persistentVolume.storageClass
           value: longhorn
+        - name: runtimeClassName
+          value: nvidia
   sources: []
   project: default
   syncPolicy:
