@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nvidia-device-plugin
+spec:
+  destination:
+    name: ''
+    namespace: kube-system
+    server: https://kubernetes.default.svc
+  source:
+    path: ''
+    repoURL: https://nvidia.github.io/k8s-device-plugin
+    targetRevision: 0.16.2
+    chart: nvidia-device-plugin
+  sources: []
+  project: default
+  syncPolicy:
+    automated: null
