@@ -1,18 +1,23 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
+  labels:
+    app.kubernetes.io/instance: k8s-services
   name: nvidia-device-plugin
+  namespace: argocd
 spec:
   destination:
-    name: ''
     namespace: kube-system
     server: https://kubernetes.default.svc
+  project: default
   source:
-    path: ''
+    chart: nvidia-device-plugin
+    helm:
+      parameters:
+      - name: gfd.enabled
+        value: "true"
     repoURL: https://nvidia.github.io/k8s-device-plugin
     targetRevision: 0.16.2
-    chart: nvidia-device-plugin
-  sources: []
-  project: default
   syncPolicy:
-    automated: null
+    syncOptions:
+    - CreateNamespace=true
