@@ -14,4 +14,4 @@ spec:
   rules:
     - host: ollama.k8s.phonkd.net
       http:
-        paths: '/'
+        paths: /
