@@ -5,4 +5,4 @@ metadata:
 handler: nvidia
 scheduling:
   nodeSelector:
-    kubernetes.io/hostname: nvidialuck
+    kubernetes.io/hostname: 9023-pw1gpu
