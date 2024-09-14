@@ -16,3 +16,4 @@ spec:
       http:
         paths:
         - path: /
+          pathType: Prefix
