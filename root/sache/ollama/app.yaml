@@ -21,7 +21,7 @@ spec:
         - name: ingress.className
           value: nginx
         - name: ingress.enabled
-          value: 'true'
+          value: 'false'
         - name: persistentVolume.enabled
           value: 'true'
         - name: persistentVolume.storageClass
