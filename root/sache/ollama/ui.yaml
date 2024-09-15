@@ -24,6 +24,8 @@ spec:
           value: 'true'
         - name: persistence.storageClass
           value: longhorn
+        - name: ollama.enabled
+          value: 'false'
     chart: open-webui
   sources: []
   project: default
