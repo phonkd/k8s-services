@@ -24,6 +24,8 @@ spec:
           value: 50Gi
         - name: persistence.enabled
           value: 'true'
+        - name: ingress.className
+          value: 'nginx'
   sources: []
   project: default
   syncPolicy:
