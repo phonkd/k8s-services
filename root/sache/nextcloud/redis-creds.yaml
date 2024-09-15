@@ -11,5 +11,5 @@ spec:
     metadata:
       creationTimestamp: null
       name: redis-creds
-      namespace: redis
+      namespace: nextcloud
 # k create secret generic redis-creds --from-literal redis-pw=XXXXXXXXXXXXXXXXXXXXXXXXX --dry-run=client -o yaml
