@@ -17,10 +17,10 @@ spec:
         paperless:
           data:
             pvc:
-              storageclass: longhorn
+              storageClass: longhorn
           primary:
             persistence:
-              storageclass: longhorn
+              storageClass: longhorn
   sources: []
   project: default
   syncPolicy:
