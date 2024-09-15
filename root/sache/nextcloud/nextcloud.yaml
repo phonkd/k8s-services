@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nextcloud
+spec:
+  destination:
+    name: ''
+    namespace: nextcloud
+    server: https://kubernetes.default.svc
+  source:
+    path: ''
+    repoURL: https://nextcloud.github.io/helm/
+    targetRevision: 5.5.6
+    chart: nextcloud
+    helm:
+      parameters:
+        - name: ingress.enabled
+          value: 'true'
+        - name: nextcloud.host
+          value: nextcloud.k8s.phonkd.net
+        - name: nginx.enabled
+          value: 'false'
+        - name: persistence.size
+          value: 50Gi
+        - name: persistence.enabled
+          value: 'true'
+  sources: []
+  project: default
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
