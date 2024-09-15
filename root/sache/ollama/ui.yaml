@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ollama-ui
+spec:
+  destination:
+    name: ''
+    namespace: ollama
+    server: https://kubernetes.default.svc
+  source:
+    path: ''
+    repoURL: https://helm.openwebui.com/
+    targetRevision: 3.1.16
+    directory:
+      jsonnet:
+        tlas:
+          - {}
+    helm:
+      parameters:
+        - name: ingress.class
+          value: nginx
+        - name: ingress.enabled
+          value: 'true'
+        - name: ingress.host
+          value: ollamaui.k8s.phonkd.net
+        - name: ingress.tls
+          value: 'true'
+        - name: persistence.storageClass
+          value: longhorn
+    chart: open-webui
+  sources: []
+  project: default
