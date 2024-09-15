@@ -10,11 +10,8 @@ spec:
   source:
     path: ''
     repoURL: https://helm.openwebui.com/
-    targetRevision: 3.1.16
-    directory:
-      jsonnet:
-        tlas:
-          - {}
+    targetRevision: 3.1.15
+    chart: open-webui
     helm:
       parameters:
         - name: ingress.class
