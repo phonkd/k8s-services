@@ -28,6 +28,8 @@ spec:
           value: longhorn
         - name: runtimeClassName
           value: nvidia
+        - name: persistentVolume.size
+          value: 80Gi
   sources: []
   project: default
   syncPolicy:
