@@ -18,6 +18,9 @@ spec:
           data:
             pvc:
               storageclass: longhorn
+          primary:
+            persistence:
+              storageclass: longhorn
   sources: []
   project: default
   syncPolicy:
