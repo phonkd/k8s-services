@@ -10,7 +10,7 @@ metadata:
   name: ollama
   namespace: ollama
 spec:
-  ingressClassName: nginx
+  ingressClassName: nginx-ingress-int
   rules:
     - host: ollama.k8s.phonkd.net
       http:
