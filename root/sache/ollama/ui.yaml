@@ -15,7 +15,7 @@ spec:
     helm:
       parameters:
         - name: ingress.class
-          value: nginx
+          value: nginx-ingress-int
         - name: ingress.enabled
           value: 'true'
         - name: ingress.host
