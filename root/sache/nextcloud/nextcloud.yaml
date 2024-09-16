@@ -131,7 +131,7 @@ spec:
           type: postgresql
 
           ## Database host
-          host: nextcloud-postgresql-hl
+          host: nextcloud-postgresql
 
           ## Database user
           user: nextcloud
