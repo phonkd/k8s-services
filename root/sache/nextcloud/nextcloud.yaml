@@ -62,7 +62,7 @@ spec:
           tls:
             - secretName: nextcloud-tls
               hosts:
-                - nextcloud.k8s.phonkd.net
+                - nextcloud.phonkd.net
           labels: {}
           path: /
           pathType: Prefix
@@ -73,7 +73,7 @@ spec:
           protocol: https
 
         nextcloud:
-          host: nextcloud.k8s.phonkd.net
+          host: nextcloud.phonkd.net
           username: admin
           password: eebo7Di7yaibeethugh4
           ## Use an existing secret
