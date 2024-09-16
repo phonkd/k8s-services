@@ -7,7 +7,7 @@ metadata:
     argocd.argoproj.io/sync-wave: "2"
 spec:
   addresses:
-    - 192.168.90.40-192.168.90.100
+    - 192.168.90.40-192.168.90.99
   autoAssign: true
 ---
 apiVersion: metallb.io/v1beta1
