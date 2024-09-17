@@ -25,7 +25,7 @@ spec:
           value: 'true'
         - name: controller.allowSnippetAnnotations
           value: 'true'
-        - name: controller.extraArgs.enable-ssl-passthrough=
+        - name: controller.extraArgs.enable-ssl-passthrough
           value: ''
   sources: []
   project: default
