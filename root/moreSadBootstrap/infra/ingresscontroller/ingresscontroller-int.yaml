@@ -25,6 +25,8 @@ spec:
           value: 'true'
         - name: controller.allowSnippetAnnotations
           value: 'true'
+        - name: controller.extraArgs
+          value: '--enable-ssl-passthrough'
   sources: []
   project: default
   syncPolicy:
