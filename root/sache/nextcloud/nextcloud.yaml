@@ -146,8 +146,8 @@ spec:
           existingSecret:
             enabled: true
             secretName: pg-creds
-            usernameKey: userpw
-            passwordKey: adminpw
+            usernameKey: username
+            passwordKey: userpw
 
         mariadb:
           enabled: false
