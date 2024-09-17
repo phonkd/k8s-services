@@ -19,3 +19,7 @@ spec:
             name: argocd-server
             port:
               name: https
+  tls:
+  - hosts:
+    - argocd.k8s.phonkd.net
+    secretName: argocd-server-tls # as expected by argocd-server
