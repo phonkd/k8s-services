@@ -25,7 +25,7 @@ spec:
           value: 'true'
         - name: controller.allowSnippetAnnotations
           value: 'true'
-        - name: controller.service.internal.loadBalancerIP
+        - name: controller.service.loadBalancerIP
           value: '192.168.90.81'
   sources: []
   project: default
