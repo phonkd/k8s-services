@@ -4,7 +4,7 @@ imports =
       #/etc/nixos/hardware-configuration.nix
       ./configuration.nix
       ./disk.nix #vm doesnt seem to boot when including this, for now I just use mount and fstab
-      /etc/nixos/hardware-configuration.nix
+      /etc/nixos/hardware-configuration.nix # run nixos-generate-config first
     ];
     networking = {
       interfaces.ens18 = {
