@@ -25,11 +25,11 @@ spec:
                   secretKeyRef:
                     name: cloudflare-ddns-secret
                     key: RECORD_ID
-              - name: AUTH_KEY
-                valueFrom:
-                  secretKeyRef:
-                    name: cloudflare-ddns-secret
-                    key: AUTH_KEY
+                    #- name: AUTH_KEY
+                    #  valueFrom:
+                    #    secretKeyRef:
+                    #      name: cloudflare-ddns-secret
+                    #      key: AUTH_KEY
               - name: AUTH_EMAIL
                 valueFrom:
                   secretKeyRef:
