@@ -2,6 +2,7 @@ apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: cloudflare-ddns
+  namespace: wg
 spec:
   schedule: "*/5 * * * *"
   successfulJobsHistoryLimit: 3
