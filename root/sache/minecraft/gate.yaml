@@ -8,11 +8,11 @@ data:
         enabled: true
         routes:
           - host: 'hardcore.mc.phonkd.net'
-            backend: minecraft-minecraft:25565
+            backend: minecraft-minecraft:25566
             proxyProtocol: false # Use proxy protocol to connect to backend.
             tcpShieldRealIP: false # Optionally you can also use TCPShield's RealIP protocol.
           - host: 'kubierend.mc.phonkd.net'
-            backend: 192.168.90.80:25566
+            backend: minecraft-mp-minecraft:25566
           ## Match all as last item routes any other host to a default backend.
           #- host: '*'
           #  backend: 10.0.0.10:25565
