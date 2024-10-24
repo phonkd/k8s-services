@@ -48,7 +48,7 @@ spec:
           value: '20Gi'
         - name: deploymentLabels.app.kubernetes.io/name:
           value: 'gate'
-        - name: deploymentLabels.app.kubernetes.io/component
+        - name: deploymentLabels.app.kubernetes.io/component:
           value: 'server'
 
   sources: []
