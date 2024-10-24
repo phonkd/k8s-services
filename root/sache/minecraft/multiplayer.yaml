@@ -39,7 +39,7 @@ spec:
         - name: resources.requests.cpu
           value: 4000m
         - name: minecraftServer.version
-          value: 1.21.3
+          value: 1.21.1
         - name: minecraftServer.type 
           value: 'PAPER'
         - name: persistence.storageClass
