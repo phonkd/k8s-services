@@ -47,10 +47,6 @@ spec:
           value: 'true'
         - name: persistence.dataDir.size
           value: '20Gi'
-          #- name: deploymentLabels.app.kubernetes.io/name
-          #value: 'gate'
-          #- name: deploymentLabels.app.kubernetes.io/component
-          #value: 'server'
 
   sources: []
   project: default
