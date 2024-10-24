@@ -27,7 +27,7 @@ spec:
         - name: minecraftServer.memory
           value: 16384M
         - name: minecraftServer.servicePort
-          value: '25570'
+          value: '25565'
         - name: minecraftServer.serviceType
           value: LoadBalancer
         - name: minecraftServer.viewDistance
@@ -40,6 +40,13 @@ spec:
           value: 4000m
         - name: minecraftServer.version
           value: 1.21.3
+        - name: persistence.storageClass
+          value: 'longhorn'
+        - name: persistence.dataDir.enabled
+          value: 'true'
+        - name: persistence.dataDir.size
+          value: '20Gi'
+
   sources: []
   project: default
   syncPolicy:

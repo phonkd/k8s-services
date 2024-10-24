@@ -19,27 +19,27 @@ data:
                 protocol: -1
               # The optional favicon to show in the server list (optimal 64x64).
               # Accepts a path of an image file or the base64 data uri.
-          # You can also use * wildcard to match any subdomain.
           - host: 'hardcore.mc.phonkd.net'
-            backend: 192.168.90.80:25570
-            proxyProtocol: true # Use proxy protocol to connect to backend.
-            tcpShieldRealIP: true # Optionally you can also use TCPShield's RealIP protocol.
+            backend: minecraft-minecraft:25570
+            proxyProtocol: false # Use proxy protocol to connect to backend.
+            tcpShieldRealIP: false # Optionally you can also use TCPShield's RealIP protocol.
           # You can also match to multiple hosts to one or multiple random backends.
-          - host: 'vanilla.mc.phonkd.net'
-            backend: 192.168.90.80:25572
-          # Match all as last item routes any other host to a default backend.
-          - host: '*'
-            backend: 10.0.0.10:25565
-            fallback:
-              motd: §eNo server available for this host.
-              version:
-                name: §eTry example.com
-                protocol: -1
+          #- host: 'vanilla.mc.phonkd.net'
+          #  backend: 192.168.91.80:25565
+          ## Match all as last item routes any other host to a default backend.
+          #- host: '*'
+          #  backend: 10.0.0.10:25565
+          #  fallback:
+          #    motd: §eNo server available for this host.
+          #    version:
+          #      name: §eTry example.com
+          #      protocol: -1
 kind: ConfigMap
 metadata:
   labels:
     app.kubernetes.io/name: gate
   name: gate-config-8bh2kdmfmd
+  namespace: mc
 ---
 apiVersion: v1
 data:
@@ -52,6 +52,7 @@ metadata:
     app.kubernetes.io/component: server
     app.kubernetes.io/name: gate
   name: spigot-8mf62594mt
+  namespace: mc
 ---
 apiVersion: v1
 kind: Service
@@ -59,6 +60,7 @@ metadata:
   labels:
     app.kubernetes.io/name: gate
   name: gate
+  namespace: mc
 spec:
   ports:
   - name: minecraft
@@ -77,6 +79,7 @@ metadata:
   labels:
     app.kubernetes.io/name: gate
   name: gate
+  namespace: mc
 spec:
   selector:
     matchLabels:
@@ -94,7 +97,7 @@ spec:
         - containerPort: 25565
           name: minecraft
         volumeMounts:
-        - mountPath: /workspace/config.yml
+        - mountPath: /config.yml
           name: config
           subPath: config.yml
       volumes:
