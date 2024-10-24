@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: minecraft-mp
+  name: minecraft
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
@@ -21,17 +21,17 @@ spec:
         - name: minecraftServer.eula
           value: 'TRUE'
         - name: minecraftServer.hardcore
-          value: 'false'
+          value: 'true'
         - name: minecraftServer.loadBalancerIP
           value: 192.168.90.80
         - name: minecraftServer.memory
           value: 16384M
         - name: minecraftServer.servicePort
-          value: '25566'
+          value: '25565'
         - name: minecraftServer.serviceType
           value: LoadBalancer
         - name: minecraftServer.viewDistance
-          value: '8'
+          value: '12'
         - name: minecraftServer.whitelist
           value: phonkd
         - name: resources.requests.memory
@@ -46,10 +46,10 @@ spec:
           value: 'true'
         - name: persistence.dataDir.size
           value: '20Gi'
-        - name: deploymentLabels.app.kubernetes.io/name
-          value: 'gate'
-        - name: deploymentLabels.app.kubernetes.io/component
-          value: 'server'
+          #- name: deploymentLabels.app.kubernetes.io/name
+          #value: 'gate'
+          #- name: deploymentLabels.app.kubernetes.io/component
+          #value: 'server'
 
   sources: []
   project: default
