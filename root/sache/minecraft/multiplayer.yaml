@@ -21,17 +21,17 @@ spec:
         - name: minecraftServer.eula
           value: 'TRUE'
         - name: minecraftServer.hardcore
-          value: 'true'
+          value: 'false'
         - name: minecraftServer.loadBalancerIP
           value: 192.168.90.80
         - name: minecraftServer.memory
           value: 16384M
         - name: minecraftServer.servicePort
-          value: '25565'
+          value: '25566'
         - name: minecraftServer.serviceType
           value: LoadBalancer
         - name: minecraftServer.viewDistance
-          value: '12'
+          value: '8'
         - name: minecraftServer.whitelist
           value: phonkd
         - name: resources.requests.memory
