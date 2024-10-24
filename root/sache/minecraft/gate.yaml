@@ -7,20 +7,20 @@ data:
       lite:
         enabled: true
         routes:
-          - host: localhost
-            backend: localhost:25566
-            # The optional fallback status response when all backends of this route are offline.
-            fallback:
-              motd: |
-                §cLocalhost server is offline.
-                §eCheck back later!
-              version:
-                name: '§cTry again later!'
-                protocol: -1
-              # The optional favicon to show in the server list (optimal 64x64).
-              # Accepts a path of an image file or the base64 data uri.
+          #- host: localhost
+          #  backend: localhost:25566
+          #  # The optional fallback status response when all backends of this route are offline.
+          #  fallback:
+          #    motd: |
+          #      §cLocalhost server is offline.
+          #      §eCheck back later!
+          #    version:
+          #      name: '§cTry again later!'
+          #      protocol: -1
+          #    # The optional favicon to show in the server list (optimal 64x64).
+          #    # Accepts a path of an image file or the base64 data uri.
           - host: 'hardcore.mc.phonkd.net'
-            backend: minecraft-minecraft:25570
+            backend: minecraft-minecraft:25565
             proxyProtocol: false # Use proxy protocol to connect to backend.
             tcpShieldRealIP: false # Optionally you can also use TCPShield's RealIP protocol.
           # You can also match to multiple hosts to one or multiple random backends.
