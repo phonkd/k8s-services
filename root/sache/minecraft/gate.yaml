@@ -1,0 +1,103 @@
+apiVersion: v1
+data:
+  config.yml: |
+    # Gate proxy configuration for Minecraft Java Edition
+    config:
+      bind: 0.0.0.0:25565
+      lite:
+        enabled: true
+        routes:
+          - host: localhost
+            backend: localhost:25566
+            # The optional fallback status response when all backends of this route are offline.
+            fallback:
+              motd: |
+                §cLocalhost server is offline.
+                §eCheck back later!
+              version:
+                name: '§cTry again later!'
+                protocol: -1
+              # The optional favicon to show in the server list (optimal 64x64).
+              # Accepts a path of an image file or the base64 data uri.
+          # You can also use * wildcard to match any subdomain.
+          - host: 'hardcore.mc.phonkd.net'
+            backend: 192.168.90.80:25570
+            proxyProtocol: true # Use proxy protocol to connect to backend.
+            tcpShieldRealIP: true # Optionally you can also use TCPShield's RealIP protocol.
+          # You can also match to multiple hosts to one or multiple random backends.
+          - host: 'vanilla.mc.phonkd.net'
+            backend: 192.168.90.80:25572
+          # Match all as last item routes any other host to a default backend.
+          - host: '*'
+            backend: 10.0.0.10:25565
+            fallback:
+              motd: §eNo server available for this host.
+              version:
+                name: §eTry example.com
+                protocol: -1
+kind: ConfigMap
+metadata:
+  labels:
+    app.kubernetes.io/name: gate
+  name: gate-config-8bh2kdmfmd
+---
+apiVersion: v1
+data:
+  spigot.yml: |
+    settings:
+      bungeecord: true
+kind: ConfigMap
+metadata:
+  labels:
+    app.kubernetes.io/component: server
+    app.kubernetes.io/name: gate
+  name: spigot-8mf62594mt
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/name: gate
+  name: gate
+spec:
+  ports:
+  - name: minecraft
+    port: 25565
+    protocol: TCP
+    targetPort: minecraft
+  type: LoadBalancer
+  loadBalancerIP: 192.168.90.88
+  selector:
+    app.kubernetes.io/component: proxy
+    app.kubernetes.io/name: gate
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/name: gate
+  name: gate
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: gate
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/component: proxy
+        app.kubernetes.io/name: gate
+    spec:
+      containers:
+      - image: ghcr.io/minekube/gate:latest
+        name: gate
+        ports:
+        - containerPort: 25565
+          name: minecraft
+        volumeMounts:
+        - mountPath: /workspace/config.yml
+          name: config
+          subPath: config.yml
+      volumes:
+      - configMap:
+          name: gate-config-8bh2kdmfmd
+        name: config
