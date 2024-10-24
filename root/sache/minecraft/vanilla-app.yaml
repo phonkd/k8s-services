@@ -28,6 +28,8 @@ spec:
           value: 16384M
         - name: minecraftServer.servicePort
           value: '25570'
+        - name: minecraftServer.serviceType
+          value: LoadBalancer
         - name: minecraftServer.viewDistance
           value: '12'
         - name: minecraftServer.whitelist
