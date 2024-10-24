@@ -1,12 +1,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: minecraft-mp
+  name: minecraft
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    name: 'vanillaaaa'
+    name: ''
     namespace: mc
     server: https://kubernetes.default.svc
   source:
