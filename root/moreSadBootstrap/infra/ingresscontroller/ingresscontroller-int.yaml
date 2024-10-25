@@ -28,7 +28,7 @@ spec:
         - name: controller.extraArgs.enable-ssl-passthrough
           value: 'true'
         - name: controller.service.loadBalancerIP
-          value: '192.168.90.91'
+          value: '192.168.90.60'
   sources: []
   project: default
   syncPolicy:
