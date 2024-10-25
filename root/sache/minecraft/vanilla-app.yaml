@@ -29,7 +29,7 @@ spec:
         - name: minecraftServer.servicePort
           value: '25566'
         - name: minecraftServer.serviceType
-          value: LoadBalancer
+          value: ClusterIP
         - name: minecraftServer.viewDistance
           value: '12'
         - name: minecraftServer.whitelist
