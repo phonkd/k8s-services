@@ -22,8 +22,8 @@ spec:
           value: 'TRUE'
         - name: minecraftServer.hardcore
           value: 'false'
-        - name: minecraftServer.loadBalancerIP
-          value: 192.168.90.79
+        #- name: minecraftServer.loadBalancerIP
+        #  value: 192.168.90.79
         - name: minecraftServer.memory
           value: 16384M
         - name: minecraftServer.servicePort
