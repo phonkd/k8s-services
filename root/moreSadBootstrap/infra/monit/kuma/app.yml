@@ -22,6 +22,8 @@ spec:
           value: '/'
         - name: ingress.hosts[0].paths[0].pathType
           value: 'ImplementationSpecific'
+        - name: ingress.className
+          value: 'nginx-ingress-rove'
         - name: tolerations[0].key
           value: 'monit'
         - name: tolerations[0].value
