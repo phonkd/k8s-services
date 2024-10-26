@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kuma
+spec:
+  destination:
+    name: ''
+    namespace: monit
+    server: https://kubernetes.default.svc
+  source:
+    path: ''
+    repoURL: https://helm.irsigler.cloud
+    targetRevision: 2.20.0
+    chart: uptime-kuma
+    helm:
+      parameters:
+        - name: ingress.enabled
+          value: 'true'
+        - name: ingress.hosts[0].host
+          value: 'kuma.rove.phonkd.net'
+        - name: tolerations[0].key
+          value: 'monit'
+        - name: tolerations[0].value
+          value: 'noschedule'
+        - name: volume.size
+          value: '10Gi'
+        - name: volume.storageClassName
+          value: 'longhorn'
+  sources: []
+  project: ''
+
