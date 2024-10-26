@@ -18,7 +18,7 @@ spec:
           value: 'true'
         - name: ingress.hosts[0].host
           value: 'kuma.rove.phonkd.net'
-        - name: ingress.hosts[0].host.paths[0].path
+        - name: ingress.hosts[0].paths[0].path
           value: '/'
         - name: tolerations[0].key
           value: 'monit'
