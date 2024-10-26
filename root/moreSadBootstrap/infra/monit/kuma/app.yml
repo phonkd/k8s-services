@@ -27,7 +27,7 @@ spec:
         - name: service.nodePort
           value: '30123'
         - name: service.type
-          value: 'nodePort'
+          value: 'NodePort'
         - name: tolerations[0].key
           value: 'monit'
         - name: tolerations[0].value
