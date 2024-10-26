@@ -25,7 +25,7 @@ spec:
           #- name: ingress.className
           # value: 'nginx-ingress-rove'
         - name: service.nodePort
-          value: 30123
+          value: '30123'
         - name: tolerations[0].key
           value: 'monit'
         - name: tolerations[0].value
