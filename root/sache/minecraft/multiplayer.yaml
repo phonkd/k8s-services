@@ -22,14 +22,14 @@ spec:
           value: 'TRUE'
         - name: minecraftServer.hardcore
           value: 'false'
-        - name: minecraftServer.loadBalancerIP
-          value: 192.168.90.79
+        #- name: minecraftServer.loadBalancerIP
+        #  value: 192.168.90.79
         - name: minecraftServer.memory
           value: 16384M
         - name: minecraftServer.servicePort
           value: '25566'
         - name: minecraftServer.serviceType
-          value: LoadBalancer
+          value: ClusterIP
         - name: minecraftServer.viewDistance
           value: '8'
         - name: minecraftServer.whitelist
