@@ -14,8 +14,8 @@ spec:
     chart: uptime-kuma
     helm:
       parameters:
-        - name: ingress.enabled
-          value: 'true'
+        #- name: ingress.enabled
+        #  value: 'true'
           #- name: ingress.hosts[0].host
           #value: 'kuma.rove.phonkd.net'
           #- name: ingress.hosts[0].paths[0].path
