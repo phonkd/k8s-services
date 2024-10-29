@@ -15,7 +15,6 @@ spec:
   tls:
   - hosts:
     - mmonit.phonkd.net
-    secretName: basic-auth
   ingressClassName: nginx
   rules:
   - host: mmonit.phonkd.net
