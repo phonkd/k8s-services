@@ -3,10 +3,10 @@ kind: Ingress
 metadata:
   name: argocd-server-ingress
   namespace: argocd
-  annotations:
-    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
-    cert-manager.io/cluster-issuer: letsencrypt-prod
+  # annotations:
+  #   nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+  #   nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+  #   cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
   ingressClassName: nginx-ingress-int
   rules:
