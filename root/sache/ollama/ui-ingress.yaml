@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ollamaui
+  namespace: ollama
+spec:
+  tls:
+  - hosts:
+    - ollamaui.k8s.phonkd.net
+    secretName: ollamaui-idk
+  ingressClassName: nginx-ingress-int
+  rules:
+    - host: ollamaui.k8s.phonkd.net
+      http:
+        paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: ollama-webui
+              port:
+                number: 80

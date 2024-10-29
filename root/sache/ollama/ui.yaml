@@ -17,9 +17,9 @@ spec:
         - name: ingress.class
           value: nginx-ingress-int
         - name: ingress.enabled
-          value: 'true'
+          value: 'false'
         - name: ingress.host
-          value: ollamaui.k8s.phonkd.net
+          value: 'ollamaui.k8s.phonkd.net'
         - name: ingress.tls
           value: 'true'
         - name: persistence.storageClass
