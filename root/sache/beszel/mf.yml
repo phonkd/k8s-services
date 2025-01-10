@@ -21,6 +21,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: beszel-deployment
+  namespace: beszel
   labels:
     app: beszel
 spec:
@@ -51,6 +52,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: beszel-service
+  namespace: beszel
 spec:
   type: ClusterIP
   selector:
