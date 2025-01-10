@@ -19,4 +19,4 @@ spec:
           service:
             name: argocd-server
             port:
-              name: https
+              name: http
