@@ -5,11 +5,12 @@ metadata:
   namespace: beszel
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
+   # nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   tls:
   - hosts:
     - beszel.k8s.phonkd.net
-    secretName: beszel-idk
+    secretName: beszel-idkkk
   ingressClassName: nginx-ingress-int
   rules:
     - host: beszel.k8s.phonkd.net
@@ -21,4 +22,4 @@ spec:
             service:
               name: beszel-service
               port:
-                number: 8090
+                number: 8091
