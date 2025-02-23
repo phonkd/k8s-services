@@ -3,20 +3,24 @@ kind: Ingress
 metadata:
   name: argocd-server-ingress
   namespace: argocd
-  # annotations:
-  #   nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-  #   nginx.ingress.kubernetes.io/ssl-passthrough: "true"
-  #   cert-manager.io/cluster-issuer: letsencrypt-prod
+  annotations:
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+    cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
   ingressClassName: nginx-ingress-int
   rules:
-  - host: argocd.k8s.phonkd.net
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: argocd-server
-            port:
-              name: http
+    - host: argocd.k8s.phonkd.net
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: argocd-server
+                port:
+                  name: http
+  tls:
+    - hosts:
+        - argocd.k8s.phonkd.net
+      secretName: argocd-server-tls
