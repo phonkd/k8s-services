@@ -3,11 +3,11 @@ kind: ConfigMap
 metadata:
   annotations:
   labels:
-    app.kubernetes.io/name: argocd-cm2
+    app.kubernetes.io/name: argocd-cm
     app.kubernetes.io/part-of: argocd
-  name: argocd-cm2
+  name: argocd-cm
   namespace: argocd
-  data:
+data:
   resource.exclusions: |
     - apiGroups:
       - cilium.io
