@@ -19,12 +19,12 @@
 
   # def shell
   users.defaultUserShell = pkgs.zsh;
-  
+
   virtualisation.docker.enable = true;
   # Groups:
   users.users.phonkd.extraGroups = [ "docker" "video" ];
   programs.ssh.startAgent = true; #ssh-agent
-  
+
   services.caddy = {
     enable = true;
     virtualHosts."beszel21.k8s.phonkd.net".extraConfig = ''
@@ -34,6 +34,5 @@
         reverse_proxy http://192.168.90.181
     '';
   };
-  networking.firewall.allowedTCPPorts = [ 80 443];
+  networking.firewall.allowedTCPPorts = [80 443];
 }
-
