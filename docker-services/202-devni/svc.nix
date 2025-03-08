@@ -27,8 +27,16 @@
 
   services.caddy = {
     enable = true;
-    virtualHosts."beszel21.k8s.phonkd.net".extraConfig = ''
-        reverse_proxy http://192.168.90.160
+    virtualHosts."http://beszel21.k8s.phonkd.net".extraConfig = ''
+        reverse_proxy http://192.168.90.160 {
+            header_upstream Host {host}
+            header_upstream X-Real-IP {remote}
+            header_upstream X-Forwarded-For {remote}
+            header_upstream X-Forwarded-Proto {scheme}
+            transport http {
+                tls
+            }
+        }
     '';
     virtualHosts."*.phonkd.net".extraConfig = ''
         reverse_proxy http://192.168.90.181
