@@ -1,0 +1,54 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mystrom-exporter
+  namespace: monit
+  labels:
+    app: mystrom-exporter
+spec:
+  containers:
+    - name: exporter-go-mystrom
+      image: ghcr.io/kubierend/myschnibbler:main
+      ports:
+        - containerPort: 9452 # Exposed port
+      command: ["/app/mystrom-exporter"]
+      args:
+        [
+          "--web.listen-address=0.0.0.0:9452",
+          "--web.device-path=/report",
+          "--target=192.168.90.230",
+        ]
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mystrom-exporter-service
+  namespace: monit
+  labels:
+    app: mystrom
+spec:
+  selector:
+    app: mystrom-exporter
+  ports:
+    - protocol: TCP
+      port: 9452 # Service port
+      targetPort: 9452 # Container port
+  type: ClusterIP # Use NodePort or LoadBalancer for external access
+---
+# untestet chatgpt kaka
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: mystrom-servicemonitor
+  namespace: monit
+  labels:
+    release: kube-prom-stack
+    app: mystrom
+spec:
+  selector:
+    matchLabels:
+      app: mystrom
+  endpoints:
+    - port: "9452"
+      path: /
+      interval: 3s
