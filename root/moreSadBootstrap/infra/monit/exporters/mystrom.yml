@@ -4,21 +4,15 @@ metadata:
   name: mystrom-exporter
   namespace: monit
   labels:
-    app: mystrom-exporter
-    release: kube-prom-stack
+    app: mystrom-exporter-pod
 spec:
   containers:
     - name: exporter-go-mystrom
-      image: ghcr.io/kubierend/myschnibbler:main
+      image: ghcr.io/peschmae/exporter-go-mystrom:latest
       ports:
         - containerPort: 9452 # Exposed port
       command: ["/app/mystrom-exporter"]
-      args:
-        [
-          "--web.listen-address=0.0.0.0:9452",
-          "--web.device-path=/report",
-          "--target=192.168.90.230",
-        ]
+      args: ["--web.listen-address=0.0.0.0:9452", "--web.device-path=/device"]
 ---
 apiVersion: v1
 kind: Service
@@ -26,14 +20,14 @@ metadata:
   name: mystrom-exporter-service
   namespace: monit
   labels:
-    app: mystrom
-    release: kube-prom-stack
+    app: mystrom-svc
 spec:
   selector:
-    app: mystrom-exporter
+    app: mystrom-exporter-pod
   ports:
     - protocol: TCP
       port: 9452 # Service port
+      name: mystrom-exporter-svc-port
       targetPort: 9452 # Container port
   type: ClusterIP # Use NodePort or LoadBalancer for external access
 ---
@@ -45,11 +39,10 @@ metadata:
   namespace: monit
   labels:
     release: kube-prom-stack
-    app: mystrom
 spec:
   selector:
     matchLabels:
-      app: mystrom-exporter
+      app: mystrom-svc
   endpoints:
-    - targetPort: 9452
-      path: /
+    - port: "9452"
+      path: \?target=192.168.90.230
