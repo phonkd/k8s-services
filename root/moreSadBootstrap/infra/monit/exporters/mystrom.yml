@@ -8,11 +8,17 @@ metadata:
 spec:
   containers:
     - name: exporter-go-mystrom
-      image: ghcr.io/peschmae/exporter-go-mystrom:latest
+      #image: ghcr.io/peschmae/exporter-go-mystrom:latest
+      image: ghcr.io/kubierend/myschnibbler:main
       ports:
         - containerPort: 9452 # Exposed port
       command: ["/app/mystrom-exporter"]
-      args: ["--web.listen-address=0.0.0.0:9452", "--web.device-path=/device"]
+      args:
+        [
+          "--web.listen-address=0.0.0.0:9452",
+          "--web.device-path=/device",
+          "--target=192.168.90.230",
+        ]
 ---
 apiVersion: v1
 kind: Service
@@ -45,4 +51,4 @@ spec:
       app: mystrom-svc
   endpoints:
     - port: "9452"
-      path: \?target=192.168.90.230
+      path: /
