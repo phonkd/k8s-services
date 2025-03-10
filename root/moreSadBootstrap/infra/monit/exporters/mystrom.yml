@@ -1,3 +1,9 @@
+# Breakdown of how this works
+# The mystrom exporter pod gets the metrics from the mystrom device.
+# IMPORTANT: Leave the "--web.device-path=/device" as is.
+# IMPORTANT: The "--target" argument is only available on the custom image build by arno4000 and is used to specify the IP address of the mystrom device
+# IMPORTANT: DONT ADD A PATH TO THE SERVICEMONITORS ENDTPOINT, IT WILL BREAK
+# The service creates an endpoint which the servicemonitor scrapes. To verify the endpoint selector on the servicemonitor is correct use "k get endpoints -l app=gagu"
 apiVersion: v1
 kind: Pod
 metadata:
