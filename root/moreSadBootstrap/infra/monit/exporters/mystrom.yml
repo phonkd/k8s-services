@@ -4,7 +4,7 @@ metadata:
   name: mystrom-exporter
   namespace: monit
   labels:
-    app: mystrom-exporter-pod
+    app: eis
 spec:
   containers:
     - name: exporter-go-mystrom
@@ -26,10 +26,10 @@ metadata:
   name: mystrom-exporter-service
   namespace: monit
   labels:
-    app: mystrom-svc
+    app: gagu
 spec:
   selector:
-    app: mystrom-exporter-pod
+    app: eis
   ports:
     - protocol: TCP
       port: 9452 # Service port
@@ -48,7 +48,8 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: mystrom-svc
+      app: gagu
   endpoints:
-    - port: "9452"
-      path: /
+    - targetPort: 9452
+      #      path: /
+      interval: 3s
