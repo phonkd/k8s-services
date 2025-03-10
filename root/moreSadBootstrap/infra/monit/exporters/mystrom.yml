@@ -5,6 +5,7 @@ metadata:
   namespace: monit
   labels:
     app: mystrom-exporter
+    release: kube-prom-stack
 spec:
   containers:
     - name: exporter-go-mystrom
@@ -26,6 +27,7 @@ metadata:
   namespace: monit
   labels:
     app: mystrom
+    release: kube-prom-stack
 spec:
   selector:
     app: mystrom-exporter
@@ -47,8 +49,7 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: mystrom
+      app: mystrom-exporter
   endpoints:
-    - port: "9452"
+    - targetPort: 9452
       path: /
-      interval: 3s
