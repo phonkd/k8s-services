@@ -5,19 +5,14 @@
 { config, pkgs, lib, ... }:
 
 {
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-  environment.systemPackages = with pkgs; [
-    vim
-    zsh
-  ];
-  # font
-  fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ];
-  })
-  ];
-  # def shell
-  users.defaultUserShell = pkgs.zsh;
+  networking.interfaces.ens18.ipv4.addresses = [ {
+      address = "192.168.90.187";
+      prefixLength = 24;
+  } ];
+  networking.defaultGateway = "192.168.90.1";
+  networking.nameservers = [ "192.168.90.1" ];
+  networking.hostName = "dev-vm"; # Define your hostname.
+  networking.networkmanager.dhcp = "internal";
   # Groups:
   programs.ssh.startAgent = true; #ssh-agent
   networking.firewall.allowedTCPPorts = [80 443 6443];
