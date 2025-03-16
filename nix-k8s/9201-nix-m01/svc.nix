@@ -20,5 +20,5 @@
   users.defaultUserShell = pkgs.zsh;
   # Groups:
   programs.ssh.startAgent = true; #ssh-agent
-  networking.firewall.allowedTCPPorts = [80 443];
+  networking.firewall.allowedTCPPorts = [80 443 6443];
 }
