@@ -16,12 +16,16 @@
     ipcalc
     nixd
   ];
+  sops.secrets.irrelevantiguess = {
+    owner = "root";
+    key = "teleport_authkey";
+  };
   services.teleport.enable = true;
   services.teleport.settings = {
     teleport = {
       nodename = "nixvm";
       # advertise_ip = "192.168.90.187";
-      auth_token = "${config.sops.secrets."teleport_authkey".path}";
+      auth_token = "${config.sops.secrets.irrelevantiguess.key}";
       auth_servers = "teleport.phonkd.net";
     };
     ssh_service = {
