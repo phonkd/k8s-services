@@ -8,7 +8,6 @@
     oh-my-zsh
     fzf
     bat
-    nixos-generators
     neofetch
     jq
     yq
@@ -16,25 +15,29 @@
     ipcalc
     nixd
   ];
-  sops.secrets.irrelevantiguess = {
+  sops.secrets.teleport_authkey = {
     owner = "root";
     key = "teleport_authkey";
   };
   services.teleport.enable = true;
   services.teleport.settings = {
+    version = "v3";
     teleport = {
       nodename = "nixvm";
       # advertise_ip = "192.168.90.187";
-      auth_token = "${config.sops.secrets.irrelevantiguess.key}";
-      auth_servers = "teleport.phonkd.net";
+      auth_token = builtins.readFile"/run/secrets/teleport_authkey";
+      #auth_servers = [ "freakedyproxy.teleport.phonkd.net" ];
+      proxy_server = "teleport.phonkd.net:443";
     };
     ssh_service = {
       enabled = true;
       labels = {
-        role = "client";
+        #role = "client";
+        type = "node";
       };
     };
     proxy_service.enabled = false;
     auth_service.enabled = false;
+    ## sops key cant be used with remote build atm
   };
 }
