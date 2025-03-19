@@ -24,10 +24,9 @@ in
     };
   };
 
-
+  api = "https://${cfg.kubeMasterHostname}:${toString cfg.kubeMasterAPIServerPort}";
   config = {
     services.kubernetes = {
-      api = "https://${cfg.kubeMasterHostname}:${toString cfg.kubeMasterAPIServerPort}";
       roles = ["node"];
       masterAddress = cfg.kubeMasterHostname;
       easyCerts = true;
