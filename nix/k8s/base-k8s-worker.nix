@@ -24,7 +24,7 @@ in
     };
   };
 
-  api = "https://${cfg.kubeMasterHostname}:${toString cfg.kubeMasterAPIServerPort}";
+  #api = "https://${cfg.kubeMasterHostname}:${toString cfg.kubeMasterAPIServerPort}";
   config = {
     services.kubernetes = {
       roles = ["node"];
@@ -32,8 +32,8 @@ in
       easyCerts = true;
 
       # point kubelet and other services to kube-apiserver
-      kubelet.kubeconfig.server = cfg.api;
-      apiserverAddress = cfg.api;
+      kubelet.kubeconfig.server = "https://${cfg.kubeMasterHostname}:${toString cfg.kubeMasterAPIServerPort}";
+      apiserverAddress = "https://${cfg.kubeMasterHostname}:${toString cfg.kubeMasterAPIServerPort}";
 
       # use coredns
       addons.dns.enable = true;
