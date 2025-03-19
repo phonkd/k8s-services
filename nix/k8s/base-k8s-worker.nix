@@ -28,7 +28,7 @@ in
     services.kubernetes = {
       api = "https://${cfg.kubeMasterHostname}:${toString cfg.kubeMasterAPIServerPort}";
       roles = ["node"];
-      masterAddress = kubeMasterHostname;
+      masterAddress = cfg.kubeMasterHostname;
       easyCerts = true;
 
       # point kubelet and other services to kube-apiserver
