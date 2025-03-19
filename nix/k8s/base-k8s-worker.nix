@@ -32,8 +32,8 @@ in
       easyCerts = true;
 
       # point kubelet and other services to kube-apiserver
-      kubelet.kubeconfig.server = api;
-      apiserverAddress = api;
+      kubelet.kubeconfig.server = cfg.api;
+      apiserverAddress = cfg.api;
 
       # use coredns
       addons.dns.enable = true;
