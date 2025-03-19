@@ -8,12 +8,12 @@
   k8s.kubeMasterIP = "192.168.90.201";
   #k8s.kubeMasterHostname = "mykube.local";
   #k8s.kubeMasterAPIServerPort = 6443;
-  
+
   imports =
     [ # Include the results of the hardware scan.
-      ../base/base.nix
-      ../base/k8s-master.nix
-      ../base/base-hardware-configuration.nix
+      ../base-k8s-worker.nix
+      ../../base/base.nix
+      ../../base/base-hardware-configuration.nix
       ./network.nix
     ];
 }
