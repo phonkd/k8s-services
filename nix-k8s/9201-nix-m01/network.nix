@@ -11,7 +11,7 @@
   } ];
   networking.defaultGateway = "192.168.90.1";
   networking.nameservers = [ "192.168.90.1" ];
-  networking.hostName = "nw01"; # Define your hostname.
+  networking.hostName = "nix-k8s-m01"; # Define your hostname.
   networking.networkmanager.dhcp = "internal";
   # Groups:
   programs.ssh.startAgent = true; #ssh-agent
