@@ -43,7 +43,7 @@ in
     };
 
   # resolve master hostname
-    networking.extraHosts = "${kubeMasterIP} ${kubeMasterHostname}";
+    networking.extraHosts = "${cfg.kubeMasterIP} ${cfg.kubeMasterHostname}";
   # packages for administration tasks
     environment.systemPackages = with pkgs; [
       kompose
