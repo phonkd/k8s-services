@@ -1,4 +1,4 @@
-{ config, pkgs, libs ... }:
+{ config, pkgs, lib, ... }:
 let
   cfg = config.k8s;
 in
