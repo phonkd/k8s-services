@@ -26,14 +26,14 @@ in
 
   config = {
     services.kubernetes = {
-      api = "https://${kubeMasterHostname}:${toString kubeMasterAPIServerPort}";
+      api = "https://${cfg.kubeMasterHostname}:${toString cfg.kubeMasterAPIServerPort}";
       roles = ["node"];
       masterAddress = kubeMasterHostname;
       easyCerts = true;
 
       # point kubelet and other services to kube-apiserver
-      kubelet.kubeconfig.server = "https://${cfg.kubeMasterHostname}:${toString cfg.kubeMasterAPIServerPort}";
-      apiserverAddress = "https://${cfg.kubeMasterHostname}:${toString cfg.kubeMasterAPIServerPort}";
+      kubelet.kubeconfig.server = api;
+      apiserverAddress = api;
 
       # use coredns
       addons.dns.enable = true;
