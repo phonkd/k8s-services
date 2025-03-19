@@ -32,7 +32,7 @@ in
       easyCerts = true;
 
       # point kubelet and other services to kube-apiserver
-      kubelet.kubeconfig.server = "https://${kubeMasterHostname}:${toString kubeMasterAPIServerPort}";
+      kubelet.kubeconfig.server = "https://${cfg.kubeMasterHostname}:${toString cfg.kubeMasterAPIServerPort}";
       apiserverAddress = "https://${cfg.kubeMasterHostname}:${toString cfg.kubeMasterAPIServerPort}";
 
       # use coredns
