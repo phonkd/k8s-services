@@ -43,11 +43,12 @@ in
     };
 
   # resolve master hostname
-  networking.extraHosts = "${kubeMasterIP} ${kubeMasterHostname}";
+    networking.extraHosts = "${kubeMasterIP} ${kubeMasterHostname}";
   # packages for administration tasks
-  environment.systemPackages = with pkgs; [
-    kompose
-    kubectl
-    kubernetes
-  ];
+    environment.systemPackages = with pkgs; [
+      kompose
+      kubectl
+      kubernetes
+    ];
+  };
 }
