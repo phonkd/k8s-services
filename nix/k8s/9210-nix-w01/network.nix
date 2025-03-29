@@ -15,5 +15,6 @@
   networking.networkmanager.dhcp = "internal";
   # Groups:
   programs.ssh.startAgent = true; #ssh-agent
-  networking.firewall.allowedTCPPorts = [80 443 6443];
+  #networking.firewall.allowedTCPPorts = [80 443 6443];
+  networking.firewall.enable = lib.mkForce false;
 }

@@ -1,0 +1,45 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: pve-csi
+spec:
+  destination:
+    namespace: csi-proxmox
+    server: https://kubernetes.default.svc
+  source:
+    path: ''
+    repoURL: ghcr.io/sergelogvinov/charts
+    targetRevision: 0.3.5
+    chart: proxmox-csi-plugin
+    helm:
+      values: |-
+        config:
+          clusters:
+            - url: https://cluster-api-1.exmple.com:8006/api2/json
+              insecure: false
+              token_id: "kubernetes-csi@pve!csi"
+              token_secret: "secret"
+              region: Region-1
+            # Add more clusters if needed
+            - url: https://cluster-api-2.exmple.com:8006/api2/json
+              insecure: false
+              token_id: "kubernetes-csi@pve!csi"
+              token_secret: "secret"
+              region: Region-2
+
+        # Define the storage classes
+        storageClass:
+          - name: proxmox-data-xfs
+            storage: data
+            reclaimPolicy: Delete
+            fstype: xfs
+            # Define the storage class as default
+            annotations:
+              storageclass.kubernetes.io/is-default-class: "true"
+  sources: []
+  project: default
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
+    syncOptions: []
