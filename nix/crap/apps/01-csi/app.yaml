@@ -14,7 +14,6 @@ spec:
     helm:
       valuesObject:
         existingConfigSecret: csipveconfig
-
   sources: []
   project: default
   syncPolicy:

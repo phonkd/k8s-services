@@ -1,16 +1,8 @@
-config:
-  clusters:
-    - url: https://kek:8006/api2/json
-      insecure: true
-      token_id: "kubernetes-csi@pve!csi"
-      token_secret: ""
-      region: idk
-# Define the storage classes
-storageClass:
-  - name: proxmox-data-xfs
-    storage: data
-    reclaimPolicy: Delete
-    fstype: xfs
-    # Define the storage class as default
-    annotations:
-      storageclass.kubernetes.io/is-default-class: "true"
+clusters:
+  - insecure: true
+    region: idk
+    token_id: kubernetes-csi@pve!csi
+    token_secret: dontputquoationmarksaroundthis
+    url: https://192.168.1.46:8006/api2/json
+features:
+  provider: default
