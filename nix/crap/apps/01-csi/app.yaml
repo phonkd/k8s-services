@@ -14,6 +14,12 @@ spec:
     helm:
       valuesObject:
         existingConfigSecret: csipveconfig
+        storageClass:
+          - name: proxmox-data-xfs
+            storage: zoom
+            cache: writeback
+            ssd: "true"
+            fstype: ext4
   sources: []
   project: default
   syncPolicy:
