@@ -33,6 +33,7 @@ in
       kompose
       kubectl
       kubernetes
+      openiscsi
     ];
 
     services.kubernetes = {

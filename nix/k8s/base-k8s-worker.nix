@@ -49,6 +49,7 @@ in
       kompose
       kubectl
       kubernetes
+      openiscsi
     ];
   };
 }

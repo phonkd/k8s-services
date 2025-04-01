@@ -1,0 +1,13 @@
+# proxmox-csi.yaml
+config:
+  clusters:
+    - url: https://192.168.1.46:8006/api2/json
+      insecure: true
+      token_id: "kubernetes-csi@pve!csi"
+      token_secret: "809f0409-0e3c-43e6-8b08-6d6884b42d4f"
+      region: idk
+storageClass:
+  - name: nvme
+    storage: nvme-zfs
+    reclaimPolicy: Delete
+    fstype: ext4
