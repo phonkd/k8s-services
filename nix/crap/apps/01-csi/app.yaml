@@ -16,7 +16,7 @@ spec:
         existingConfigSecret: csipveconfig
         storageClass:
           - name: proxmox-data-xfs
-            storage: zoom
+            storage: nvme-zfs
             cache: writeback
             ssd: "true"
             fstype: ext4
