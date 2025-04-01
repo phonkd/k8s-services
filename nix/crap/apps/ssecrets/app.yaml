@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: sealedsecrets
+spec:
+  destination:
+    namespace: sealedsecrets
+    server: https://kubernetes.default.svc
+  source:
+    path: ""
+    repoURL: https://bitnami-labs.github.io/sealed-secrets
+    targetRevision: 2.17.2
+    chart: sealed-secrets
+  sources: []
+  project: default
+  syncPolicy:
+    automated: null
+    syncOptions:
+      - CreateNamespace=true
