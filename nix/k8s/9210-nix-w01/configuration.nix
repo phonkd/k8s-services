@@ -15,5 +15,6 @@
       ../../base/base.nix
       ../../base/base-hardware-configuration.nix
       ./network.nix
+      ../pve-csi-fix.nix
     ];
 }

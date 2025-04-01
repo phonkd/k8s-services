@@ -51,8 +51,4 @@ in
       kubernetes
     ];
   };
-  # needed for proxmox csi
-  systemd.tmpfiles.rules = [
-    "d /var/lib/kubelet/plugins_registry 0755 root root -"
-  ];
 }
