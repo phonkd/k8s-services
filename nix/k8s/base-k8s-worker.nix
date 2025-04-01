@@ -39,7 +39,7 @@ in
       addons.dns.enable = true;
 
       # needed if you use swap
-      kubelet.extraOpts = "--fail-swap-on=false";
+      kubelet.extraOpts = "--fail-swap-on=false --node-labels=topology.kubernetes.io/region=idk --node-labels=topology.kubernetes.io/zone=wamluck";
     };
 
   # resolve master hostname
@@ -51,5 +51,4 @@ in
       kubernetes
     ];
   };
-  kubelet.extraOpts = "--fail-swap-on=false --node-labels=topology.kubernetes.io/region=idk --node-labels=topology.kubernetes.io/zone=wamluck";
 }
