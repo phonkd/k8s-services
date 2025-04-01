@@ -1,10 +1,10 @@
 config:
   clusters:
-    - url: https://IP:8006/api2/json
+    - url: https://kek:8006/api2/json
       insecure: true
       token_id: "kubernetes-csi@pve!csi"
       token_secret: ""
-      region: Region-1
+      region: idk
 # Define the storage classes
 storageClass:
   - name: proxmox-data-xfs
