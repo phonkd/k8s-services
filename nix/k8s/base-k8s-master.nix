@@ -43,6 +43,7 @@ in
       apiserver = {
         securePort = cfg.kubeMasterAPIServerPort;
         advertiseAddress = cfg.kubeMasterIP;
+        allowPrivileged = true;
       };
 
       # use coredns
