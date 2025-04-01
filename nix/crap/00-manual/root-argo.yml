@@ -10,8 +10,6 @@ spec:
     path: nix/crap
     repoURL: https://github.com/phonkd/k8s-services.git
     targetRevision: HEAD
-    directory:
-      recurse: true
   sources: []
   project: default
   syncPolicy:
