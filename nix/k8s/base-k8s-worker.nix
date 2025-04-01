@@ -51,4 +51,5 @@ in
       kubernetes
     ];
   };
+  kubelet.extraOpts = "--fail-swap-on=false --node-labels=topology.kubernetes.io/region=idk --node-labels=topology.kubernetes.io/zone=wamluck";
 }
