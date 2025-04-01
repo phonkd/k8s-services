@@ -16,7 +16,7 @@ spec:
       valuesObject:
         existingConfigSecret: csipveconfig
         storageClass:
-          - name: proxmox-data-xfs
+          - name: nvme-zfs
             storage: nvme-zfs
             cache: writeback
             ssd: "true"
