@@ -1,0 +1,16 @@
+config:
+  clusters:
+    - url: https://192.168.1.46:8006/api2/json
+      insecure: true
+      token_id: "kubernetes-csi@pve!csi"
+      token_secret: ""
+      region: Region-1
+# Define the storage classes
+storageClass:
+  - name: proxmox-data-xfs
+    storage: data
+    reclaimPolicy: Delete
+    fstype: xfs
+    # Define the storage class as default
+    annotations:
+      storageclass.kubernetes.io/is-default-class: "true"
