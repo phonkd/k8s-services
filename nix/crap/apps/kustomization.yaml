@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
   - ./01-csi
   - ./ssecrets
+  - ./bladman-apps/app.yaml
