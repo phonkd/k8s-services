@@ -3,5 +3,5 @@ kind: Kustomization
 resources:
   - ../apps/01-csi
   - ../apps/ssecrets
-  - ../apps/bladman-apps/app.yaml
+  - ../apps/bladman-apps
   - ../apps/teleport-kubeagent
