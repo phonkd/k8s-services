@@ -21,6 +21,8 @@ spec:
             cache: writeback
             ssd: "true"
             fstype: ext4
+        node:
+          kubeletDir: /var/lib/kuberenetes
   sources: []
   project: default
   syncPolicy:
@@ -28,3 +30,4 @@ spec:
       prune: false
       selfHeal: false
     syncOptions: []
+# k create secret generic --from-file config.yaml csipveconfig --dry-run=client -o yaml
