@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
   - ./app.yaml
   - ./ssecret.yaml
+  - ./argocd-cmd-params-cm.yml

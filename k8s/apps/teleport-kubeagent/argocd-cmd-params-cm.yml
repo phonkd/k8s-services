@@ -2,6 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: argocd-cmd-params-cm
+  namespace: argocd
   labels:
     app.kubernetes.io/name: argocd-cmd-params-cm
     app.kubernetes.io/part-of: argocd
@@ -10,6 +11,6 @@ data:
   server.disable.auth: "true"
   server.x.frame.options: ""
   redis.auth.enabled: "false"
-  url: https://argocd-server-http-argocd-phonkr.teleport.phonkd.net
+  #url: https://argocd-server-http-argocd-phonkr.teleport.phonkd.net
   #statusbadge.url: https://argocd-server-http-argocd-phonkr.teleport.phonkd.net
 # this is needed so that argo can be accessed from teleport
