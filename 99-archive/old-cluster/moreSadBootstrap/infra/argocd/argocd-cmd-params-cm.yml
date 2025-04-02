@@ -10,5 +10,5 @@ data:
   server.disable.auth: "true"
   server.x.frame.options: ""
   redis.auth.enabled: "false"
-  #url: https://argocd-server-http-argocd-phonkr.teleport.phonkd.net
-  #statusbadge.url: https://argocd-server-http-argocd-phonkr.teleport.phonkd.net
+  url: https://argocd-server-http-argocd-phonkr.teleport.phonkd.net
+  statusbadge.url: https://argocd-server-http-argocd-phonkr.teleport.phonkd.net
