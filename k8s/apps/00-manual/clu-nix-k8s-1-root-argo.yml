@@ -7,7 +7,7 @@ spec:
     namespace: argocd
     server: https://kubernetes.default.svc
   source:
-    path: nix/crap
+    path: k8s/clu-nix-k8s-1
     repoURL: https://github.com/phonkd/k8s-services.git
     targetRevision: HEAD
   sources: []

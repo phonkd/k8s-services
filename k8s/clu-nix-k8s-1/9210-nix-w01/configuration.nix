@@ -12,9 +12,8 @@
   imports =
     [ # Include the results of the hardware scan.
       ../base-k8s-worker.nix
-      ../../base/base.nix
-      ../../base/base-hardware-configuration.nix
+      ../../../base/base.nix
+      ../../../base/base-hardware-configuration.nix
       ./network.nix
-      ../pve-csi-fix.nix
     ];
 }
