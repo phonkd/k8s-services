@@ -22,7 +22,7 @@ spec:
             ssd: "true"
             fstype: ext4
         node:
-          kubeletDir: /var/lib/kuberenetes
+          kubeletDir: /var/lib/kubernetes
   sources: []
   project: default
   syncPolicy:
