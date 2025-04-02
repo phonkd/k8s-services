@@ -29,9 +29,4 @@ spec:
     automated:
       prune: false
       selfHeal: false
-    syncOptions:
-      - RespectIgnoreDifferences=true
-  ignoreDifferences:
-    - group: "bitnami.com/v1alpha1"
-      kind: "SealedSecret"
 # k create secret generic --from-file config.yaml csipveconfig --dry-run=client -o yaml

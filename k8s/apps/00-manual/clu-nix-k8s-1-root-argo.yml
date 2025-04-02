@@ -19,5 +19,5 @@ spec:
     syncOptions:
       - RespectIgnoreDifferences=true
   ignoreDifferences:
-    - group: "bitnami.com/v1alpha1"
+    - group: "*"
       kind: "SealedSecret"
