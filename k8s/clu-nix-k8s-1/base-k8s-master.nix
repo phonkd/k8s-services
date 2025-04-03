@@ -54,10 +54,6 @@ in
       # needed if you use swap
       kubelet.extraOpts = "--fail-swap-on=false --node-labels=topology.kubernetes.io/region=idk --node-labels=topology.kubernetes.io/zone=wamluck";
       kubelet.cni.configDir = "/var/lib/kubernetes/cni/net.d";
-      services.kubernetes.kubelet.cni.packages = lib.mkForce [
-        pkgs.cni-plugins
-        #pkgs.cni-plugin-flannel
-      ];
     };
   };
 }
