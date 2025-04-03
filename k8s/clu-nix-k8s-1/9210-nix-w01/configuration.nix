@@ -16,4 +16,5 @@
       ../../../machine-base/base-hardware-configuration.nix
       ./network.nix
     ];
+    services.kubernetes.flannel.enable = false;
 }
