@@ -53,5 +53,9 @@ in
       kubernetes
       openiscsi
     ];
+    services.kubernetes.kubelet.cni.packages = lib.mkForce [
+      pkgs.cni-plugins
+      #pkgs.cni-plugin-flannel
+    ];
   };
 }
