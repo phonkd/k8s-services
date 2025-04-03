@@ -37,25 +37,8 @@ in
 
       # use coredns
       addons.dns.enable = true;
-
-      # Proxmox CSI + Cilium
-      kubelet.extraOpts = "--fail-swap-on=false --node-labels=topology.kubernetes.io/region=idk --node-labels=topology.kubernetes.io/zone=wamluck";
-      flannel.enable = false;
-      kubelet.cni.configDir = "/var/lib/kubernetes/cni/net.d";
     };
-
   # resolve master hostname
     networking.extraHosts = "${cfg.kubeMasterIP} ${cfg.kubeMasterHostname}";
-  # packages for administration tasks
-    environment.systemPackages = with pkgs; [
-      kompose
-      kubectl
-      kubernetes
-      openiscsi
-    ];
-    services.kubernetes.kubelet.cni.packages = lib.mkForce [
-      pkgs.cni-plugins
-      #pkgs.cni-plugin-flannel
-    ];
   };
 }

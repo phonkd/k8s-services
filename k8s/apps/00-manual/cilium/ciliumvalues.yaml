@@ -1,0 +1,18 @@
+routingMode: native
+ipv4NativeRoutingCIDR: "10.42.0.0/16"
+autoDirectNodeRoutes: true
+ipam:
+  mode: "kubernetes"
+  operator:
+    clusterPoolIPv4PodCIDRList: ["10.42.0.0/16"]
+cni:
+  # change path because /etc is readonly on nixos
+  hostConfDirMountPath: /host/var/lib/kubernetes/cni/net.d
+  confPath: /var/lib/kubernetes/cni/net.d
+hubble:
+  ui:
+    enabled: true
+  relay:
+    enabled: true
+
+kubeProxyReplacement: "false"

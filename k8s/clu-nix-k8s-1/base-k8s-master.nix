@@ -28,13 +28,7 @@ in
     # resolve master hostname
     networking.extraHosts = "${cfg.kubeMasterIP} ${cfg.kubeMasterHostname}";
 
-    # packages for administration tasks
-    environment.systemPackages = with pkgs; [
-      kompose
-      kubectl
-      kubernetes
-      openiscsi
-    ];
+
 
     services.kubernetes = {
       roles = ["master" "node"];
@@ -46,14 +40,8 @@ in
         advertiseAddress = cfg.kubeMasterIP;
         allowPrivileged = true;
       };
-      flannel.enable = false;
-
       # use coredns
       addons.dns.enable = true;
-
-      # needed if you use swap
-      kubelet.extraOpts = "--fail-swap-on=false --node-labels=topology.kubernetes.io/region=idk --node-labels=topology.kubernetes.io/zone=wamluck";
-      kubelet.cni.configDir = "/var/lib/kubernetes/cni/net.d";
     };
   };
 }
