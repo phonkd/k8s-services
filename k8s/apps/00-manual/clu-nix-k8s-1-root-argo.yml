@@ -8,7 +8,7 @@ spec:
     server: https://kubernetes.default.svc
   source:
     path: k8s/clu-nix-k8s-1
-    repoURL: https://github.com/phonkd/k8s-services.git
+    repoURL: https://github.com/phonkd/inventory.git
     targetRevision: HEAD
   sources: []
   project: default
