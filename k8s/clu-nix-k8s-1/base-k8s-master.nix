@@ -46,6 +46,7 @@ in
         advertiseAddress = cfg.kubeMasterIP;
         allowPrivileged = true;
       };
+      flannel.enable = false;
 
       # use coredns
       addons.dns.enable = true;

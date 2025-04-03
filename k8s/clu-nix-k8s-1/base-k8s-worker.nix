@@ -40,6 +40,7 @@ in
 
       # needed if you use swap
       kubelet.extraOpts = "--fail-swap-on=false --node-labels=topology.kubernetes.io/region=idk --node-labels=topology.kubernetes.io/zone=wamluck";
+      flannel.enable = false;
     };
 
   # resolve master hostname
