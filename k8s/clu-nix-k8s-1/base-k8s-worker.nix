@@ -38,9 +38,10 @@ in
       # use coredns
       addons.dns.enable = true;
 
-      # needed if you use swap
+      # Proxmox CSI + Cilium
       kubelet.extraOpts = "--fail-swap-on=false --node-labels=topology.kubernetes.io/region=idk --node-labels=topology.kubernetes.io/zone=wamluck";
       flannel.enable = false;
+      kubelet.cni.configDir = "/var/lib/kubernetes/cni/net.d";
     };
 
   # resolve master hostname
