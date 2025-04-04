@@ -14,5 +14,8 @@ hubble:
     enabled: true
   relay:
     enabled: true
-
-kubeProxyReplacement: "false"
+kubeProxyReplacement: "true"
+ipam:
+  mode: "kubernetes"
+externalIPs:
+  enabled: true

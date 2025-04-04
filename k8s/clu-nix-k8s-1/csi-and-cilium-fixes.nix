@@ -18,4 +18,5 @@
     kubernetes
     openiscsi
   ];
+  services.kubernetes.proxy.enable = true;
 }
