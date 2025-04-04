@@ -19,4 +19,8 @@
     openiscsi
   ];
   services.kubernetes.proxy.enable = false;
+  services.kubernetes.kubelet.cni.packages = lib.mkForce [
+    pkgs.cni-plugins
+    #pkgs.cni-plugin-flannel
+  ];
 }
