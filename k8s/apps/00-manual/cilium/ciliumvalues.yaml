@@ -1,6 +1,6 @@
-routingMode: native
-ipv4NativeRoutingCIDR: "10.42.0.0/16"
-autoDirectNodeRoutes: true
+# routingMode: native
+# ipv4NativeRoutingCIDR: "10.42.0.0/16"
+# autoDirectNodeRoutes: true
 ipam:
   mode: "kubernetes"
   operator:
@@ -21,7 +21,7 @@ externalIPs:
   enabled: true
 l2announcements:
   enabled: true
-devices: eth+
+devices: ens18
 k8sServiceHost: apinix.kube
 k8sServicePort: 6443
 

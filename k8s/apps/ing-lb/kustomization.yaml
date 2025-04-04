@@ -6,3 +6,4 @@ resources:
   - ./letsencrypt-cert-manager/app.yaml
   - ./letsencrypt-cert-manager/issuer.yaml
   - ./letsencrypt-cert-manager/cloudflare-api-token-secret.yaml
+  - ./l2announcementpolicy.yaml
