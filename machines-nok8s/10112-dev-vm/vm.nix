@@ -39,7 +39,8 @@
     proxy_service.enabled = false;
     auth_service.enabled = false;
     ## sops key cant be used with remote build atm
-    services.desktopManager.plasma6.enable = true;
-    services.displayManager.sddm.enable = true;
+
   };
+  services.desktopManager.plasma6.enable = true;
+  services.displayManager.sddm.enable = true;
 }
