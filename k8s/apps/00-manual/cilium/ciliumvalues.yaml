@@ -21,7 +21,7 @@ externalIPs:
   enabled: true
 l2announcements:
   enabled: true
-devices: ens+
+devices: eth+
 k8sServiceHost: apinix.kube
 k8sServicePort: 6443
 
