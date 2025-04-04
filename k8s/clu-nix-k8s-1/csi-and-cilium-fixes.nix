@@ -23,5 +23,5 @@
     pkgs.cni-plugins
     #pkgs.cni-plugin-flannel
   ];
-  networking.usePredictableInterfaceNames = false;
+  #networking.usePredictableInterfaceNames = false;
 }
