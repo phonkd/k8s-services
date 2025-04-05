@@ -15,6 +15,6 @@
   networking.networkmanager.dhcp = "internal";
   # Groups:
   #programs.ssh.startAgent = true; #ssh-agent
-  networking.firewall.allowedTCPPorts = [80 443 8222];
-
+  networking.firewall.allowedTCPPorts = [80 443];
+  networking.firewall.allowedUDPPorts = [8222];
 }
