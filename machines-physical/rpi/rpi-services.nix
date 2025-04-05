@@ -30,4 +30,7 @@
     compose2nix
   ];
   virtualisation.docker.enable = true;
+  users.users.phonkd = {
+    extraGroups = [ "docker" ];
+  };
 }
