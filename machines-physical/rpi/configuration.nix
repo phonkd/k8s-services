@@ -6,5 +6,6 @@
       ../../machine-base/ssh.nix
       ./rpi-hw.nix
       #/etc/nixos/hardware-configuration.nix
+      ./raspotify-container.nix
     ];
 }
