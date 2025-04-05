@@ -6,10 +6,10 @@
 
 {
   networking.interfaces.ens18.ipv4.addresses = [ {
-      address = "192.168.90.187";
+      address = "192.168.1.187";
       prefixLength = 24;
   } ];
-  networking.defaultGateway = "192.168.90.1";
+  networking.defaultGateway = "192.168.1.1";
   networking.nameservers = [ "192.168.90.1" ];
   networking.hostName = "dev-vm"; # Define your hostname.
   networking.networkmanager.dhcp = "internal";
@@ -20,18 +20,11 @@
       address = "192.168.1.187";
       prefixLength = 24;
   } ];
-  networking.interfaces.ens19.ipv4.routes = [
-    {
-        address = "0.0.0.0";
-        prefixLength = 0;
-        via = "192.168.1.1";
-    }
-    ];
   networking.interfaces.ens18.ipv4.routes = [
     {
         address = "192.168.90.0";
         prefixLength = 24;
-        via = "192.168.90.1";
+        via = "192.168.1.3";
     }
     ];
 }
