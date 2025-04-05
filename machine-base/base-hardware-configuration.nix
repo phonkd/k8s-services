@@ -18,6 +18,7 @@
       fsType = "ext4";
       autoResize = true;
     };
+  boot.growPartition = true;
 
   swapDevices = [ ];
 
