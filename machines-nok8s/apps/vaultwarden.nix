@@ -1,8 +1,9 @@
 { config, pkgs, ... }:
 {
   services.vaultwarden.enable = true;
-  environment.systemPackages = with pkgs; [
-    vim
-    git
-  ];
+  services.caddy = {
+    virtualHosts."vw.nix-services.phonkd.net".extraConfig = ''
+      reverse_proxy :8222
+    '';
+  };
 }
