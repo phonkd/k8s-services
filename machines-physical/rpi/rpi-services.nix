@@ -26,6 +26,8 @@
     bluez # Bluetooth support
     bluez-tools # Bluetooth tools
     git
+    vim
+    compose2nix
   ];
   virtualisation.docker.enable = true;
 }
