@@ -4,5 +4,5 @@
     vim
     git
   ];
-  fileSystems.ext4.autoResize = true;
+  fileSystems."dev/sda1".autoResize = true;
 }
