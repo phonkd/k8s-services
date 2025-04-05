@@ -12,7 +12,7 @@
       ./ssh.nix
       ../../machine-base/base.nix
       ../../machine-base/base-hardware-configuration.nix
-      ../apps/reverseproxy.nix
-      ../apps/vaultwarden.nix
+      #../apps/reverseproxy.nix
+      #../apps/vaultwarden.nix
     ];
 }
