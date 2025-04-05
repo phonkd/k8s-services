@@ -8,4 +8,5 @@
       #/etc/nixos/hardware-configuration.nix
       ./raspotify-container.nix
     ];
+  system.stateVersion = "24.11";
 }
