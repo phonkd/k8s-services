@@ -25,6 +25,7 @@
     pamixer # Command-line mixer for PulseAudio
     bluez # Bluetooth support
     bluez-tools # Bluetooth tools
+    git
   ];
   virtualisation.docker.enable = true;
 }
