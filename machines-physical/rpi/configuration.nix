@@ -4,6 +4,7 @@
       ./network.nix
       ./rpi-services.nix
       ../../machine-base/ssh.nix
-      ./rpi-hw.nix
+      #./rpi-hw.nix
+      /etc/nixos/hardware-configuration.nix
     ];
 }
