@@ -11,6 +11,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ../../../machine-base/base.nix
+      ../../../machine-base/ssh.nix
       ../base-k8s-master.nix
       ../../../machine-base/base-hardware-configuration.nix
       ./network.nix

@@ -12,6 +12,7 @@
     [ # Include the results of the hardware scan.
       ../base-k8s-worker.nix
       ../../../machine-base/base.nix
+      ../../../machine-base/ssh.nix
       ../../../machine-base/base-hardware-configuration.nix
       ./network.nix
       ../csi-and-cilium-fixes.nix

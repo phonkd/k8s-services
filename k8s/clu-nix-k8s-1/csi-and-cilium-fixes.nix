@@ -24,7 +24,7 @@
     #pkgs.cni-plugin-flannel
   ];
   #networking.usePredictableInterfaceNames = false;
-  systemd.tmpfiles.rules = [
-      "D /var/lib/kubelet/plugins_registry 0755 root root -"
-    ];
+  # systemd.tmpfiles.rules = [
+  #     "D /opt/cni/bin 0755 root root -"
+  #   ];
 }

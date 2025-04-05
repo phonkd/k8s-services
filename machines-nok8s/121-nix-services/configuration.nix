@@ -11,7 +11,6 @@
       ./vm.nix
       ./sops.nix
       ../../machine-base/base.nix
-      ../../machine-base/ssh.nix
       ../../machine-base/base-hardware-configuration.nix
     ];
 }
