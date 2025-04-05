@@ -28,9 +28,11 @@
     git
     vim
     compose2nix
+    btop
   ];
   virtualisation.docker.enable = true;
   users.users.phonkd = {
     extraGroups = [ "docker" ];
   };
+  services.prometheus.exporters.node.enable = true;
 }
