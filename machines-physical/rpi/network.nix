@@ -30,4 +30,5 @@
         # Enable the wireless interface
         interfaces = [ "wlan0" ];
     };
+  };
 }
