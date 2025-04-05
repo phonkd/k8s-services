@@ -4,6 +4,11 @@
   # boot.loader.raspberryPi.firmwareConfig = ''
   #   dtparam=audio=on
   # '';
+  sound.enable = true;
+  boot.kernelParams = [ "snd_bcm2835.enable_hdmi=1" "snd_bcm2835.enable_headphones=1" ];
+  boot.loader.raspberryPi.firmwareConfig = ''
+    dtparam=audio=on
+  '';
   services.pulseaudio.enable = true; # Use Pipewire, the modern sound subsystem
   security.rtkit.enable = true; # Enable RealtimeKit for audio purposes
   services.pipewire = {
@@ -35,4 +40,5 @@
     extraGroups = [ "docker" ];
   };
   services.prometheus.exporters.node.enable = true;
+
 }
