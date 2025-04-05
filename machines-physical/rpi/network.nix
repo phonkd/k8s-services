@@ -15,7 +15,7 @@
   networking.networkmanager.dhcp = "internal";
   # Groups:
   programs.ssh.startAgent = true; #ssh-agent
-  networking.firewall.enabled = false;
+  networking.firewall.enable = false;
   networking.interfaces.end0.ipv4.addresses = [ {
       address = "192.168.1.187";
       prefixLength = 24;
