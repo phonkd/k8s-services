@@ -4,4 +4,5 @@
     vim
     git
   ];
+  virtualisation.fileSystems.ext4.autoResize
 }
