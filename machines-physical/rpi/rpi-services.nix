@@ -4,7 +4,7 @@
   # boot.loader.raspberryPi.firmwareConfig = ''
   #   dtparam=audio=on
   # '';
-  hardware.pulseaudio.enable = false; # Use Pipewire, the modern sound subsystem
+  services.pulseaudio.enable = true; # Use Pipewire, the modern sound subsystem
   security.rtkit.enable = true; # Enable RealtimeKit for audio purposes
   services.pipewire = {
     enable = true;
