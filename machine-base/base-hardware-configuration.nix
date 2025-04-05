@@ -16,6 +16,7 @@
   fileSystems."/" =
     { device = "/dev/disk/by-path/pci-0000:01:01.0-scsi-0:0:0:0-part/by-partnum/1";
       fsType = "ext4";
+      autoResize = true;
     };
 
   swapDevices = [ ];
