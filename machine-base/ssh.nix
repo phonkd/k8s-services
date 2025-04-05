@@ -21,4 +21,19 @@
     # note: ssh-copy-id will add user@your-machine after the public key
     # but we can remove the "@your-machine" part
   ];
+
+  networking.networkmanager.dhcp = "internal";
+  # Set your time zone.
+  time.timeZone = "Europe/Zurich";
+  i18n.defaultLocale = "en_US.UTF-8";
+  services.xserver.xkb = {
+    layout = "ch";
+    variant = "";
+  };
+  console.keyMap = "sg";
+  users.users.phonkd = {
+    isNormalUser = true;
+    description = "phonkd";
+    extraGroups = [ "networkmanager" "wheel" ];
+  };
 }

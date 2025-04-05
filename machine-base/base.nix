@@ -9,20 +9,6 @@
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
-  networking.networkmanager.dhcp = "internal";
-  # Set your time zone.
-  time.timeZone = "Europe/Zurich";
-  i18n.defaultLocale = "en_US.UTF-8";
-  services.xserver.xkb = {
-    layout = "ch";
-    variant = "";
-  };
-  console.keyMap = "sg";
-  users.users.phonkd = {
-    isNormalUser = true;
-    description = "phonkd";
-    extraGroups = [ "networkmanager" "wheel" ];
-  };
   nixpkgs.config.allowUnfree = true;
   networking.firewall.enable = true;
   system.stateVersion = "24.11"; # Did you read the comment?
