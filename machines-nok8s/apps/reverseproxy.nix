@@ -2,8 +2,8 @@
 {
   services.caddy = {
     package = pkgs.caddy.withPlugins {
-        plugins = [ "github.com/caddy-dns/cloudflare" ];
-        #hash = "sha256-F/jqR4iEsklJFycTjSaW8B/V3iTGqqGOzwYBUXxRKrc=";
+        plugins = [ "github.com/caddy-dns/powerdns@v1.0.1" ];
+        hash = "sha256-F/jqR4iEsklJFycTjSaW8B/V3iTGqqGOzwYBUXxRKrc=";
       };
     enable = true;
     virtualHosts."vw.nix-services.phonkd.net".extraConfig = ''
