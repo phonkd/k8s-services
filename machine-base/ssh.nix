@@ -36,4 +36,5 @@
     description = "phonkd";
     extraGroups = [ "networkmanager" "wheel" ];
   };
+  security.sudo.wheelNeedsPassword = false;
 }
