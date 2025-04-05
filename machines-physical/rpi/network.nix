@@ -8,7 +8,7 @@
   networking.defaultGateway = "192.168.1.1";
   networking.nameservers = [ "192.168.1.1" ];
   networking.hostName = "pi4"; # Define your hostname.
-  networking.networkmanager.dhcp = dhcpd;
+  networking.networkmanager.dhcp = "dhcpcd";
   # Groups:
   programs.ssh.startAgent = true; #ssh-agent
   networking.firewall.enable = false;
