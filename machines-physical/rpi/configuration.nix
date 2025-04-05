@@ -38,7 +38,7 @@
 
   nix.buildMachines = [ {
 	 hostName = "192.168.1.26";
-	 system = "x86_64-linux";
+	 system = "aarch64-linux";
        protocol = "ssh-ng";
 	 # if the builder supports building for multiple architectures,
 	 # replace the previous line by, e.g.
