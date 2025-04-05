@@ -1,7 +1,7 @@
-{ config, pkgs, nixpkgs-unstable, ... }:
+{ config, pkgs, ... }:
 {
   services.caddy = {
-    package = nixpkgs-unstable.caddy.withPlugins {
+    package = pkgs.unstable.caddy.withPlugins {
       plugins = [ "github.com/caddy-dns/powerdns@v1.0.1" ];
       hash = "sha256-F/jqR4iEsklJFycTjSaW8B/V3iTGqqGOzwYBUXxRKrc=";
     };
