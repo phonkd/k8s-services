@@ -8,7 +8,7 @@
   networking.defaultGateway = "192.168.1.1";
   networking.nameservers = [ "192.168.1.1" ];
   networking.hostName = "pi4"; # Define your hostname.
-  networking.networkmanager.dhcp = "dhcpcd";
+  #networking.networkmanager.dhcp = "dhcpcd";
   # Groups:
   programs.ssh.startAgent = true; #ssh-agent
   networking.firewall.enable = false;
@@ -20,7 +20,7 @@
   #     address = "192.168.1.122";
   #     prefixLength = 24;
   # } ];
-  #networking.networkmanager.enable = true;
+  networking.networkmanager.enable = true;
     # Prevent host becoming unreachable on wifi after some time.
   networking.networkmanager.wifi.powersave = false;
 }
