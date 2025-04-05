@@ -21,6 +21,7 @@
     log-driver = "journald";
     extraOptions = [
       "--network=host"
+      "--privileged"
     ];
   };
   systemd.services."docker-raspotify-rpi-spotify" = {
