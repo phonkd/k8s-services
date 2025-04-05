@@ -1,9 +1,9 @@
 { config, pkgs, ... }:
 {
-  boot.kernelParams = [ "snd_bcm2835.enable_hdmi=1" "snd_bcm2835.enable_headphones=1" ];
-  boot.loader.raspberryPi.firmwareConfig = ''
-    dtparam=audio=on
-  '';
+  # boot.kernelParams = [ "snd_bcm2835.enable_hdmi=1" "snd_bcm2835.enable_headphones=1" ];
+  # boot.loader.raspberryPi.firmwareConfig = ''
+  #   dtparam=audio=on
+  # '';
   hardware.pulseaudio.enable = false; # Use Pipewire, the modern sound subsystem
   security.rtkit.enable = true; # Enable RealtimeKit for audio purposes
   services.pipewire = {
