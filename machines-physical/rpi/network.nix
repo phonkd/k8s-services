@@ -5,10 +5,6 @@
 { config, pkgs, lib, ... }:
 
 {
-  networking.interfaces.ens18.ipv4.addresses = [ {
-      address = "192.168.1.123";
-      prefixLength = 24;
-  } ];
   networking.defaultGateway = "192.168.1.1";
   networking.nameservers = [ "192.168.1.1" ];
   networking.hostName = "pi4"; # Define your hostname.
@@ -17,7 +13,7 @@
   programs.ssh.startAgent = true; #ssh-agent
   networking.firewall.enable = false;
   networking.interfaces.end0.ipv4.addresses = [ {
-      address = "192.168.1.187";
+      address = "192.168.1.123";
       prefixLength = 24;
   } ];
 }
