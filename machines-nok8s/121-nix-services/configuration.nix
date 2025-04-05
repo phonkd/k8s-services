@@ -12,5 +12,6 @@
       ./ssh.nix
       ../../machine-base/base.nix
       ../../machine-base/base-hardware-configuration.nix
+      ../apps/vaultwarden.nix
     ];
 }
