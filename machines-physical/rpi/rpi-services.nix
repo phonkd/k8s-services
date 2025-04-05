@@ -4,7 +4,7 @@
   # boot.loader.raspberryPi.firmwareConfig = ''
   #   dtparam=audio=on
   # '';
-  sound.enable = true;
+  #sound.enable = true;
   boot.kernelParams = [ "snd_bcm2835.enable_hdmi=1" "snd_bcm2835.enable_headphones=1" ];
   # boot.loader.raspberryPi.firmwareConfig = ''
   #   dtparam=audio=on
