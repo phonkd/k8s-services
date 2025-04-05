@@ -6,8 +6,8 @@
       hash = "sha256-YYpsf8HMONR1teMiSymo2y+HrKoxuJMKIea5/NEykGc=";
     };
     enable = true;
-    virtualHosts."vw.nix-services.phonkd.net".extraConfig = ''
-      reverse_proxy :8222
+    globalConfig = ''
+      acme_dns cloudflare ${builtins.readFile "/run/secrets/cfapikey"};
     '';
   };
 }

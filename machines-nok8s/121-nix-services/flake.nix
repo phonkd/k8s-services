@@ -5,8 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-24.11";
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
   };
-
-  outputs = { self, nixpkgs, nixpkgs-unstable }:
+  outputs = { self, nixpkgs, nixpkgs-unstable, sops-nix }:
     let
       system = "x86_64-linux";
       overlay-unstable = final: prev: {

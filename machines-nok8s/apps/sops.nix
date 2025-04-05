@@ -10,7 +10,5 @@
         # cant get this to work sha256 = "365b87d848a57c12ffcfdc71da7a2b55f";
       }}/modules/sops"
     ];
-  sops.defaultSopsFile = ./secrets/secrets.yaml;
   sops.defaultSopsFormat = "yaml";
-  sops.age.keyFile = "/root/.config/sops/age/keys.txt";
 }
