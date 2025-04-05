@@ -20,7 +20,7 @@
           config.allowUnfree = true;
         };
       in {
-        nixosConfigurations.your-hostname = nixpkgs.lib.nixosSystem {
+        nixosConfigurations.dev-vm = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
             ./configuration.nix

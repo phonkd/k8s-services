@@ -11,7 +11,7 @@
   } ];
   networking.defaultGateway = "192.168.1.1";
   networking.nameservers = [ "192.168.1.3" "192.168.1.1" ];
-  networking.hostName = "dev-vm"; # Define your hostname.
+  networking.hostName = "nixos-services"; # Define your hostname.
   networking.networkmanager.dhcp = "internal";
   # Groups:
   #programs.ssh.startAgent = true; #ssh-agent
