@@ -20,7 +20,7 @@
   #     address = "192.168.1.122";
   #     prefixLength = 24;
   # } ];
-  networking.networkmanager.enable = true;
+  #networking.networkmanager.enable = true;
     # Prevent host becoming unreachable on wifi after some time.
   networking.networkmanager.wifi.powersave = false;
 }
