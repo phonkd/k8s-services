@@ -11,4 +11,5 @@
   sops.defaultSopsFile = ./secrets/secrets.yaml;
   sops.age.keyFile = /home/phonkd/.config/sops/age/keys.txt;
   sops.secrets.cfapikey = {};
+  sops.secrets."ocisjwt" = {};
 }
