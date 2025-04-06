@@ -12,4 +12,9 @@
   sops.age.keyFile = /home/phonkd/.config/sops/age/keys.txt;
   sops.secrets.cfapikey = {};
   sops.secrets."kek/ocisjwt" = {};
+  sops.secrets.maliggah = {
+      format = "yaml";
+      sopsFile = ./secrets/ocis-secret.yaml;
+      key = "";
+  };
 }

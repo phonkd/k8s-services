@@ -3,9 +3,7 @@
   services.ocis = {
     enable = true;
     address = "ocis.nix-services.phonkd.net";
-    environment = {
-      OCIS_JWT_SECRET = "${builtins.readFile config.sops.secrets."kek/ocisjwt".path}";
-    };
+    configDir = "/run/secrets/";
   };
   services.caddy = {
     virtualHosts."ocis.nix-services.phonkd.net".extraConfig = ''
