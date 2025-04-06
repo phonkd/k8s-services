@@ -10,4 +10,15 @@
       acme_dns cloudflare ${builtins.readFile config.sops.secrets."cfapikey".path}
     '';
   };
+  services.caddy = {
+    virtualHosts."*.nixk8s.phonkd.net".extraConfig = ''
+      reverse_proxy {
+        to 192.168.90.231:443
+        transport http {
+            tls
+            tls_insecure_skip_verify
+        }
+      }
+    '';
+  };
 }
