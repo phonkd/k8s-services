@@ -7,7 +7,7 @@
     };
     enable = true;
     globalConfig = ''
-      acme_dns cloudflare ${builtins.readFile "/run/secrets/cfapikey"}
+      acme_dns cloudflare ${builtins.readFile config.sops.secrets."cfapikey".path}
     '';
   };
 }

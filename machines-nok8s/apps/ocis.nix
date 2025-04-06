@@ -4,7 +4,7 @@
     enable = true;
     address = "ocis.nix-services.phonkd.net";
     environment = {
-      OCIS_JWT_SECRET = "${builtins.readFile "/run/secrets/ocisjwt"}";
+      OCIS_JWT_SECRET = "${builtins.readFile config.sops.secrets."kek/ocisjwt".path}";
     };
   };
   services.caddy = {
