@@ -1,6 +1,6 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).asdf
+# and in the NixOS manual (accessible by running ‘nixos-help’)
 
 { config, pkgs, ... }:
 let
@@ -10,6 +10,9 @@ in
   environment.systemPackages = with pkgs; [
     nix-experiment
   ];
+  services.cron.systemCronJobs = [
+
+  ]
   # Bootloader.
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
