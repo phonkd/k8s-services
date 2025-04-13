@@ -12,7 +12,7 @@ pkgs.stdenv.mkDerivation {
     '';
   installPhase = ''
     mkdir -p $out/bin
-    cp $src $out/bin/nix-experiment
+    cp source/nix-experiment $out/bin/nix-experiment
     chmod +x $out/bin/nix-experiment
   '';
 }
