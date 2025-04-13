@@ -9,7 +9,7 @@ pkgs.stdenv.mkDerivation {
   installPhase = ''
     tar -xzf $src
     mkdir -p $out/bin
-    cp nix-experiment $out/bin/nix-experiment
+    cp rebuild-wrapper $out/bin/nix-experiment
     chmod +x $out/bin/nix-experiment
   '';
 }
