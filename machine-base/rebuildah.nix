@@ -3,7 +3,7 @@ pkgs.stdenv.mkDerivation {
   name = "nix-experiment";
   src = pkgs.fetchurl {
     url = "https://github.com/phonkd/nix-experiment/releases/download/0.3/rebuild-wrapper";
-    sha256 = "sha256-5J58dEVAUHD28PMjXdCyb9rXvrS9ixYGK2D7fejI27M=";
+    sha256 = "";
   };
   phases = ["installPhase" "patchPhase"];
   installPhase = ''
