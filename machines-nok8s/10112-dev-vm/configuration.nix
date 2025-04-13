@@ -14,4 +14,5 @@
       ../../machine-base/ssh.nix
       ../../machine-base/base-hardware-configuration.nix
     ];
+  sops.defaultSopsFile = ./secrets/secrets.yaml;
 }
