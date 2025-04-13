@@ -7,7 +7,7 @@ pkgs.stdenv.mkDerivation {
   };
   phases = ["installPhase" "patchPhase"];
   installPhase = ''
-    tar -xzf $src
+    #tar -xzf $src
     mkdir -p $out/bin
     cp rebuild-wrapper $out/bin/nix-experiment
     chmod +x $out/bin/nix-experiment
