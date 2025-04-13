@@ -3,9 +3,13 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
-
+let
+  nix-experiment = import ./rebuildah.nix { inherit pkgs; };
+in
 {
-  imports = [ ./rebuildah.nix ];
+  environment.systemPackages = with pkgs; [
+    nix-experiment
+  ];
   # Bootloader.
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
