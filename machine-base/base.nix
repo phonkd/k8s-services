@@ -4,12 +4,12 @@
 
 { config, pkgs, ... }:
 
-let
-  myRepo = import https://github.com/phonkd/nix-experiment/default.nix {
-  };
-in
 
 {
+  imports =
+    [ # Include the results of the hardware scan.
+      ./rebuildah.nix
+    ];
   # Bootloader.
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
@@ -18,12 +18,4 @@ in
   networking.firewall.enable = true;
   system.stateVersion = "24.11"; # Did you read the comment?
   services.qemuGuest.enable = true;
-
-  # Use `myRepo` in your configuration
-    environment.systemPackages = with pkgs; [
-      myRepo.somePackage
-    ];
-
-    # You can also use values or attributes exported by default.nix
-    services.myService = myRepo.someService;
 }
