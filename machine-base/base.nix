@@ -4,6 +4,11 @@
 
 { config, pkgs, ... }:
 
+let
+  myRepo = import https://github.com/phonkd/nix-experiment/default.nix {
+  };
+in
+
 {
   # Bootloader.
   boot.loader.grub.enable = true;
@@ -13,4 +18,12 @@
   networking.firewall.enable = true;
   system.stateVersion = "24.11"; # Did you read the comment?
   services.qemuGuest.enable = true;
+
+  # Use `myRepo` in your configuration
+    environment.systemPackages = with pkgs; [
+      myRepo.somePackage
+    ];
+
+    # You can also use values or attributes exported by default.nix
+    services.myService = myRepo.someService;
 }
