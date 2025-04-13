@@ -7,12 +7,11 @@ pkgs.stdenv.mkDerivation {
   };
   phases = ["installPhase" "patchPhase" "unpackPhase"];
   unpackPhase = ''
-      mkdir source
-      tar -xzf $src -C source
+      tar -xzf $src
     '';
   installPhase = ''
     mkdir -p $out/bin
-    cp source/nix-experiment $out/bin/nix-experiment
+    cp nix-experiment $out/bin/nix-experiment
     chmod +x $out/bin/nix-experiment
   '';
 }
