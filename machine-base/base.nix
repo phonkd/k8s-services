@@ -10,9 +10,9 @@ in
   environment.systemPackages = with pkgs; [
     nix-experiment
   ];
-  services.cron.systemCronJobs = [
-    "*/3 * * * * root nix-experiment epopath /tmp/kek -nixconfig machines-nok8s/10112-dev-vm/configuration.nix -repourl https://github.com/phonkd/inventory.git -ntfyurl https://notify.arnsi.ch/seltest -ntfytoken"
-  ];
+  # services.cron.systemCronJobs = [
+  #   "*/3 * * * * root nix-experiment -repopath /tmp/kek -nixconfig machines-nok8s/10112-dev-vm/configuration.nix -repourl https://github.com/phonkd/inventory.git -ntfyurl https://notify.arnsi.ch/seltest -ntfytoken"
+  # ];
   # Bootloader.
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
