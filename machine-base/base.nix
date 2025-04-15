@@ -5,7 +5,6 @@
 { config, pkgs, ... }:
 {
   imports = [
-    ../machines-nok8s/apps/rebuildah/rebuildah.nix
     ../machines-nok8s/apps/sops.nix
   ];
   environment.systemPackages = with pkgs; [
