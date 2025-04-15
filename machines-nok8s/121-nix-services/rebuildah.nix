@@ -1,4 +1,4 @@
-{ config }
+{ config }:
 {
   imports = [
     ../machines-nok8s/apps/rebuildah/rebuildah.nix
