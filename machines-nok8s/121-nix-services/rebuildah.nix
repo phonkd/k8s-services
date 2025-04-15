@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 {
   imports = [
-    ../machines-nok8s/apps/rebuildah/rebuildah.nix
+    ../apps/rebuildah/rebuildah.nix
   ];
   sops.secrets.ntfytoken = {
     sopsFile = ../apps/rebuildah/secrets/secrets.yaml;
