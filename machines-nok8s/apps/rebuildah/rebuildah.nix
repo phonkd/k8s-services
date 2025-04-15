@@ -11,4 +11,5 @@ in
     nix-experiment
   ];
   sops.secrets.ntfytoken = {};
+  nnnnn = "${builtins.readFile config.sops.secrets."ntfytoken".path}"
 }
