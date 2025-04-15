@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./network.nix
+      ./rebuildah.nix
       ./vm.nix
       ../apps/sops.nix
       ../../machine-base/base.nix
