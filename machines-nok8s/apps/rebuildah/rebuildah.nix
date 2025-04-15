@@ -10,5 +10,5 @@ in
   environment.systemPackages = with pkgs; [
     nix-experiment
   ];
-  sops.secret.ntfytoken = {};
+  sops.secrets.ntfytoken = {};
 }
