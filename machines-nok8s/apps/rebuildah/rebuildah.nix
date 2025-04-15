@@ -10,7 +10,5 @@ in
   environment.systemPackages = with pkgs; [
     nix-experiment
   ];
-  sops.secrets.ntfytoken = {
-    sopsFile = ../ocis/secrets/rebuildah-secret.yaml;
-  };
+  sops.secrets.ntfytoken = {};
 }
