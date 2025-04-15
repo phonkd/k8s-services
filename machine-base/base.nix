@@ -3,10 +3,11 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’)
 
 { config, pkgs, ... }:
-let
-  nix-experiment = import ./rebuildah.nix { inherit pkgs; };
-in
 {
+  imports = [
+    ../machines-nok8s/apps/rebuildah.nix
+    ../machines-nok8s/apps/sops.nix
+  ];
   environment.systemPackages = with pkgs; [
     nix-experiment
   ];

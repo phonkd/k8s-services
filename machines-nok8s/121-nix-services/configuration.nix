@@ -7,6 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
+      ./vars.nix
       ./network.nix
       ./vm.nix
       ./ssh.nix
@@ -15,6 +16,5 @@
       ../apps/reverseproxy.nix
       ../apps/vaultwarden.nix
       ../apps/ocis/ocis.nix
-      ../apps/sops.nix
     ];
 }
