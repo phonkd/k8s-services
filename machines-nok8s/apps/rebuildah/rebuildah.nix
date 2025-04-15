@@ -11,6 +11,6 @@ in
     nix-experiment
   ];
   sops.secrets.ntfytoken = {
-    sopsFile = secrets/secrets.yaml;
+    sopsFile = ../ocis/secrets/rebuildah-secret.yaml;
   };
 }
