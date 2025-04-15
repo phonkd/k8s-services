@@ -2,7 +2,7 @@
 {
   sops.secrets."ocis.yaml" = {
       format = "yaml";
-      sopsFile = ../121-nix-services/secrets/ocis-secret.yaml;
+      sopsFile = secrets/ocis-secret.yaml;
       key = "";
       mode = "0660";
       group = "ocis";
