@@ -34,5 +34,5 @@
       }
     '';
   };
-  sops.defaultSopsFile = ./secrets/secrets.yaml;
+  sops.defaultSopsFile = ./secrets/secret.yaml;
 }
