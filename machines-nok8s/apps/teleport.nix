@@ -3,7 +3,7 @@ let
   vmhostname = config.networking.hostName;
 in
 {
-  sops.secrets."teleport_authkey" = {
+  sops.secrets."husotfunktionierdoch/teleport_authkey" = {
   };
   services.teleport.enable = true;
   services.teleport.settings = {
@@ -11,7 +11,7 @@ in
     teleport = {
       nodename = "${vmhostname}";
       # advertise_ip = "192.168.90.187";
-      auth_token = "${builtins.readFile config.sops.secrets."teleport_authkey".path}";
+      auth_token = "${builtins.readFile config.sops.secrets."husotfunktionierdoch/teleport_authkey".path}";
       #auth_servers = [ "freakedyproxy.teleport.phonkd.net" ];
       proxy_server = "teleport.phonkd.net:443";
     };
