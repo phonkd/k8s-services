@@ -23,7 +23,7 @@ in
     };
     proxy_service.enabled = false;
     auth_service.enabled = false;
-    ## sops key cant be used with remote build atm
+    ## sops key cant  be used with remote build atm
 
   };
 }
