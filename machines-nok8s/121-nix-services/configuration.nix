@@ -16,6 +16,6 @@
       ../apps/reverseproxy.nix
       ../apps/vaultwarden.nix
       ../apps/ocis/ocis.nix
-      ../apps/teleport/teleport.nix
+      ../apps/teleport.nix
     ];
 }
