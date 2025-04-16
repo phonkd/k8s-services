@@ -4,7 +4,6 @@ let
 in
 {
   sops.secrets.teleport_authkey = {
-    owner = "root";
     key = "teleport_authkey";
   };
   services.teleport.enable = true;
