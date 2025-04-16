@@ -6,6 +6,7 @@ in
   sops.secrets.teleport_authkey = {
     owner = "root";
     key = "teleport_authkey";
+    sopsFile = "../ocis/secrets/teleport.yaml";
   };
   services.teleport.enable = true;
   services.teleport.settings = {
