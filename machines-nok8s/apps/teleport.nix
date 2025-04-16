@@ -3,8 +3,7 @@ let
   vmhostname = config.networking.hostName;
 in
 {
-  sops.secrets.teleport_authkey = {
-    key = "teleport_authkey";
+  sops.secrets."teleport_authkey" = {
   };
   services.teleport.enable = true;
   services.teleport.settings = {
