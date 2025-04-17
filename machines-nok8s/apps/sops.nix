@@ -13,5 +13,5 @@
   sops.defaultSopsFormat = "yaml";
   sops.age.keyFile = /home/phonkd/.config/sops/age/keys.txt;
   sops.defaultSopsFile = ./ocis/secrets/secret.yaml;
-  sops.secrets."boutalosemyshit" = {};
+
 }
