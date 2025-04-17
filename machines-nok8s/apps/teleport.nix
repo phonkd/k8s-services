@@ -4,6 +4,7 @@ let
 in
 {
   sops.secrets.teleport_authkey = {};
+  sops.defaultSopsFile = ./ocis/secrets/secret.yaml;
   services.teleport.enable = true;
   services.teleport.settings = {
     version = "v3";
