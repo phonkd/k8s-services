@@ -6,7 +6,10 @@
     teleport = {
       nodename = "sopsnixstinkt";
       # advertise_ip = "192.168.90.187";
-      auth_token = config.sops.secrets."teleport_authkey".path;
+      auth_token = if builtins.pathExists config.sops.secrets.teleport_authkey.path then
+                       builtins.readFile config.sops.secrets.teleport_authkey.path
+                     else
+                       "default_auth_token_placeholder";
       #auth_servers = [ "freakedyproxy.teleport.phonkd.net" ];
       proxy_server = "teleport.phonkd.net:443";
     };
