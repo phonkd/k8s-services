@@ -1,7 +1,4 @@
 { config, pkgs, ... }:
-let
-  vmhostname = config.networking.hostName;
-in
 {
   sops.secrets.cfapikey = {};
   services.caddy = {
@@ -37,7 +34,7 @@ in
   services.teleport.settings = {
     version = "v3";
     teleport = {
-      nodename = "${vmhostname}";
+      nodename = "sopsnixstinkt";
       # advertise_ip = "192.168.90.187";
       auth_token = builtins.readFile config.sops.secrets."teleport_authkey".path;
       #auth_servers = [ "freakedyproxy.teleport.phonkd.net" ];
