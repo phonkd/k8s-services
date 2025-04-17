@@ -1,4 +1,7 @@
 { config, pkgs, ... }:
+let
+  vmhostname = config.networking.hostName;
+in
 {
   sops.secrets.cfapikey = {};
   services.caddy = {
