@@ -3,10 +3,6 @@
 #   vmhostname = config.networking.hostName;
 # in
 {
-  sops.secrets.teleport_authkey = {
-    sopsFile = ./ocis/secrets/secret.yaml;
-    key = "teleport_authkey";
-  };
   services.teleport.enable = true;
   services.teleport.settings = {
     version = "v3";

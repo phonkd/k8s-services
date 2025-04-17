@@ -1,5 +1,10 @@
 { config, pkgs, ... }:
 {
+  sops.secrets.teleport_authkey = {
+    sopsFile = ./ocis/secrets/secret.yaml;
+    key = "teleport_authkey";
+  };
+
   sops.secrets."ocis.yaml" = {
       format = "yaml";
       sopsFile = secrets/ocis-secret.yaml;
