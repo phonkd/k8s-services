@@ -1,15 +1,14 @@
 { config, pkgs, ... }:
-let
-  vmhostname = config.networking.hostName;
-in
+# let
+#   vmhostname = config.networking.hostName;
+# in
 {
-  sops.secrets."husotfunktionierdoch/teleport_authkey" = {
-  };
+  sops.secrets.teleport_authkey = {};
   services.teleport.enable = true;
   services.teleport.settings = {
     version = "v3";
     teleport = {
-      nodename = "${vmhostname}";
+      #nodename = "${vmhostname}";
       # advertise_ip = "192.168.90.187";
       auth_token = "${builtins.readFile config.sops.secrets."husotfunktionierdoch/teleport_authkey".path}";
       #auth_servers = [ "freakedyproxy.teleport.phonkd.net" ];
