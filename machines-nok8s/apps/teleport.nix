@@ -8,7 +8,7 @@
   services.teleport.settings = {
     version = "v3";
     teleport = {
-      nodename = "sopsnixstinkt";
+      nodename = config.networking.hostName;
       # advertise_ip = "192.168.90.187";
       #
       auth_token = if builtins.pathExists config.sops.secrets.teleport_authkey.path then
