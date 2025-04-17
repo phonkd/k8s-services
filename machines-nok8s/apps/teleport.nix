@@ -3,7 +3,7 @@ let
   vmhostname = config.networking.hostName;
 in
 {
-  sops.secrets.boutalosemyshit = {};
+  sops.secrets."boutalosemyshit" = {};
   sops.defaultSopsFile = ./ocis/secrets/secret.yaml;
   services.teleport.enable = true;
   services.teleport.settings = {
