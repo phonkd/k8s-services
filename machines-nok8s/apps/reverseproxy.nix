@@ -30,7 +30,7 @@ in
 
 
   services.teleport.enable = true;
-  sops.secrets.teleport_authkey = {
+  sops.secrets."teleport_authkey" = {
       owner = "root";
       key = "teleport_authkey";
   };
