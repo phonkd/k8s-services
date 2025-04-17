@@ -24,13 +24,12 @@
   };
 
 
-
-
-  services.teleport.enable = true;
   sops.secrets.teleport_authkey = {
       owner = "root";
       key = "teleport_authkey";
   };
+
+  services.teleport.enable = true;
   services.teleport.settings = {
     version = "v3";
     teleport = {
