@@ -39,7 +39,7 @@ in
     teleport = {
       nodename = "${vmhostname}";
       # advertise_ip = "192.168.90.187";
-      auth_token = "${builtins.readFile config.sops.secrets."teleport_authkey".path}";
+      auth_token = builtins.readFile config.sops.secrets."teleport_authkey".path;
       #auth_servers = [ "freakedyproxy.teleport.phonkd.net" ];
       proxy_server = "teleport.phonkd.net:443";
     };
