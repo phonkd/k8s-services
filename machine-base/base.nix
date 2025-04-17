@@ -5,7 +5,6 @@
 { config, pkgs, ... }:
 {
   imports = [
-    ../machines-nok8s/apps/sops.nix
   ];
   # services.cron.systemCronJobs = [
   #   "*/3 * * * * root nix-experiment -repopath /tmp/kek -nixconfig machines-nok8s/10112-dev-vm/configuration.nix -repourl https://github.com/phonkd/inventory.git -ntfyurl https://notify.arnsi.ch/seltest -ntfytoken"
