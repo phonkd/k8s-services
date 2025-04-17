@@ -33,7 +33,7 @@ in
   sops.secrets.teleport_authkey = {
       owner = "root";
       key = "teleport_authkey";
-    };
+  };
   services.teleport.settings = {
     version = "v3";
     teleport = {
