@@ -5,8 +5,6 @@
 { config, pkgs, ... }:
 {
   imports = [
-    ../machines-nok8s/apps/sops.nix
-    ../machines-nok8s/apps/teleport.nix
     ../machines-nok8s/apps/rebuildah/rebuildah.nix
   ];
   # services.cron.systemCronJobs = [

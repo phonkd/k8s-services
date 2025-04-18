@@ -15,7 +15,5 @@
       ../../machine-base/base-hardware-configuration.nix
       ../apps/reverseproxy.nix
       ../apps/vaultwarden.nix
-      ../apps/teleport.nix
-      ../apps/sops.nix
     ];
 }

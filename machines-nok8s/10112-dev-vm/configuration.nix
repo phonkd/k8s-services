@@ -14,6 +14,8 @@
       ../../machine-base/base.nix
       ../../machine-base/ssh.nix
       ../../machine-base/base-hardware-configuration.nix
+      ../apps/teleport.nix
+      ../apps/sops.nix
     ];
   sops.secrets.teleport_authkey = {};
 }
