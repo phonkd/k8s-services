@@ -10,10 +10,8 @@
       ./rebuildah.nix
       ./network.nix
       ./vm.nix
-      ./ssh.nix
+      ../../machine-base/ssh.nix
       ../../machine-base/base.nix
       ../../machine-base/base-hardware-configuration.nix
-      ../apps/reverseproxy.nix
-      ../apps/vaultwarden.nix
     ];
 }
