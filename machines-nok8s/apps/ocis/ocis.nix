@@ -22,11 +22,11 @@
       IDP_ISS = "https://localhost:9200";
     };
   };
+  # header_up Host {.reverse_proxy.upstream.host}
   services.caddy = {
     virtualHosts."ocis.nix-services.phonkd.net".extraConfig = ''
       reverse_proxy {
         to localhost:9200
-        header_up Host {.reverse_proxy.upstream.host}
         transport http {
           tls
           tls_insecure_skip_verify
