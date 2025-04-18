@@ -25,6 +25,7 @@
     environment = {
       "LANG" = "de";
       "WG_HOST" = "raspberrypi.local";
+      "PASSWORD_HASH" = "$2a$12$AyoAkGvVjigkoC/t0cQ9Y.W587urJLOfKmola6uKdIQZxXnOASEHW";
     };
     volumes = [
       "wge_etc_wireguard:/etc/wireguard:rw"
