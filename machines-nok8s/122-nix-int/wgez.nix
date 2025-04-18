@@ -1,7 +1,13 @@
 # Auto-generated using compose2nix v0.3.1.
 { pkgs, lib, ... }:
-
+let
+  wgtokentemp = if builtins.pathExists config.sops.secrets."wgpw".path then
+                    builtins.readFile config.sops.secrets."wgpw".path
+                  else
+                    "default_auth_token_placeholder";
+in
 {
+  sops.secrets.wgpw = {};
   # Runtime
   virtualisation.podman = {
     enable = true;
@@ -25,7 +31,7 @@
     environment = {
       "LANG" = "de";
       "WG_HOST" = "phonkd.net";
-      "PASSWORD_HASH" = "$2a$12$AyoAkGvVjigkoC/t0cQ9Y.W587urJLOfKmola6uKdIQZxXnOASEHW";
+      "PASSWORD_HASH" = "${wgtokentemp}";
       #"WG_ALLOWED_IPS" = "192.168.0.0/24";
     };
     volumes = [
