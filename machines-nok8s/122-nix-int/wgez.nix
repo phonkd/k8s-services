@@ -1,5 +1,5 @@
 # Auto-generated using compose2nix v0.3.1.
-{ pkgs, lib, ... }:
+{ pkgs, lib, config, ... }:
 let
   wgtokentemp = if builtins.pathExists config.sops.secrets."wgpw".path then
                     builtins.readFile config.sops.secrets."wgpw".path
