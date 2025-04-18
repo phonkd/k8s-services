@@ -21,9 +21,12 @@
 
   # Containers
   virtualisation.oci-containers.containers."wg-easy" = {
-    image = "ghcr.io/wg-easy/wg-easy:15";
+    image = "ghcr.io/wg-easy/wg-easy";
+    environment = {
+      "LANG" = "de";
+      "WG_HOST" = "raspberrypi.local";
+    };
     volumes = [
-      "/lib/modules:/lib/modules:ro"
       "wge_etc_wireguard:/etc/wireguard:rw"
     ];
     ports = [
@@ -35,15 +38,10 @@
       "--cap-add=NET_ADMIN"
       "--cap-add=NET_RAW"
       "--cap-add=SYS_MODULE"
-      "--ip6=fdcc:ad94:bacf:61a3::2a"
-      "--ip=10.42.42.42"
       "--network-alias=wg-easy"
-      "--network=wge_wg"
+      "--network=wge_default"
       "--sysctl=net.ipv4.conf.all.src_valid_mark=1"
       "--sysctl=net.ipv4.ip_forward=1"
-      "--sysctl=net.ipv6.conf.all.disable_ipv6=0"
-      "--sysctl=net.ipv6.conf.all.forwarding=1"
-      "--sysctl=net.ipv6.conf.default.forwarding=1"
     ];
   };
   systemd.services."podman-wg-easy" = {
@@ -51,11 +49,11 @@
       Restart = lib.mkOverride 90 "always";
     };
     after = [
-      "podman-network-wge_wg.service"
+      "podman-network-wge_default.service"
       "podman-volume-wge_etc_wireguard.service"
     ];
     requires = [
-      "podman-network-wge_wg.service"
+      "podman-network-wge_default.service"
       "podman-volume-wge_etc_wireguard.service"
     ];
     partOf = [
@@ -67,15 +65,15 @@
   };
 
   # Networks
-  systemd.services."podman-network-wge_wg" = {
+  systemd.services."podman-network-wge_default" = {
     path = [ pkgs.podman ];
     serviceConfig = {
       Type = "oneshot";
       RemainAfterExit = true;
-      ExecStop = "podman network rm -f wge_wg";
+      ExecStop = "podman network rm -f wge_default";
     };
     script = ''
-      podman network inspect wge_wg || podman network create wge_wg --driver=bridge --subnet=10.42.42.0/24 --subnet=fdcc:ad94:bacf:61a3::/64 --ipv6
+      podman network inspect wge_default || podman network create wge_default
     '';
     partOf = [ "podman-compose-wge-root.target" ];
     wantedBy = [ "podman-compose-wge-root.target" ];
