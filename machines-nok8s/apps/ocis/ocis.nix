@@ -12,14 +12,14 @@
   services.ocis = {
     enable = true;
     #address = "127.0.0.1";
-    url = "https://localhost:9200";
+    url = "https://ocis.nix-services.phonkd.net";
     configDir = "/run/secrets";
     environment = {
       OCIS_INSECURE = "true";
-      CS3_ALLOW_INSECURE = "true";
-      TLS_SKIP_VERIFY_CLIENT_CERT = "true";
-      OCIS_INSECURE_BACKENDS = "true";
-      IDP_ISS = "https://localhost:9200";
+      # CS3_ALLOW_INSECURE = "true";
+      # TLS_SKIP_VERIFY_CLIENT_CERT = "true";
+      # OCIS_INSECURE_BACKENDS = "true";
+      # IDP_ISS = "https://localhost:9200";
     };
   };
   # header_up Host {.reverse_proxy.upstream.host}
