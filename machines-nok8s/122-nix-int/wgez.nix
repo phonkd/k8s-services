@@ -26,7 +26,7 @@
       "LANG" = "de";
       "WG_HOST" = "phonkd.net";
       "PASSWORD_HASH" = "$2a$12$AyoAkGvVjigkoC/t0cQ9Y.W587urJLOfKmola6uKdIQZxXnOASEHW";
-      "WG_ALLOWED_IPS" = "192.168.0.0/24";
+      #"WG_ALLOWED_IPS" = "192.168.0.0/24";
     };
     volumes = [
       "wge_etc_wireguard:/etc/wireguard:rw"
