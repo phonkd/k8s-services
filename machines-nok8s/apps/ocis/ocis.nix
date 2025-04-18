@@ -16,9 +16,9 @@
     configDir = "/run/secrets";
     environment = {
       OCIS_INSECURE = "true";
-      # CS3_ALLOW_INSECURE = "true";
-      # TLS_SKIP_VERIFY_CLIENT_CERT = "true";
-      # OCIS_INSECURE_BACKENDS = "true";
+      CS3_ALLOW_INSECURE = "true";
+      #TLS_SKIP_VERIFY_CLIENT_CERT = "true";
+      OCIS_INSECURE_BACKENDS = "true";
       # IDP_ISS = "https://localhost:9200";
     };
   };
