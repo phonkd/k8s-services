@@ -16,5 +16,5 @@
   # Groups:
   #programs.ssh.startAgent = true; #ssh-agent
   networking.firewall.allowedTCPPorts = [80 443];
-  networking.firewall.allowedUDPPorts = [8222];
+  networking.firewall.allowedUDPPorts = [51820 51821];
 }
