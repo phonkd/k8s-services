@@ -24,7 +24,7 @@
     image = "ghcr.io/wg-easy/wg-easy";
     environment = {
       "LANG" = "de";
-      "WG_HOST" = "phonkd.net:51820";
+      "WG_HOST" = "phonkd.net";
       "PASSWORD_HASH" = "$2a$12$AyoAkGvVjigkoC/t0cQ9Y.W587urJLOfKmola6uKdIQZxXnOASEHW";
       "WG_ALLOWED_IPS" = "192.168.0.0/24";
     };
