@@ -17,5 +17,6 @@
       ../apps/vaultwarden.nix
       ../apps/teleport.nix
       ../apps/sops.nix
+      ../apps/ocis/ocis.nix
     ];
 }
