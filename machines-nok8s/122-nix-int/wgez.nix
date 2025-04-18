@@ -24,8 +24,9 @@
     image = "ghcr.io/wg-easy/wg-easy";
     environment = {
       "LANG" = "de";
-      "WG_HOST" = "raspberrypi.local";
+      "WG_HOST" = "phonkd.net:51820";
       "PASSWORD_HASH" = "$2a$12$AyoAkGvVjigkoC/t0cQ9Y.W587urJLOfKmola6uKdIQZxXnOASEHW";
+      "WG_ALLOWED_IPS" = "192.168.0.0/24";
     };
     volumes = [
       "wge_etc_wireguard:/etc/wireguard:rw"
