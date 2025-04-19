@@ -20,32 +20,18 @@
   services.alloy.enable = true;
   environment.etc."alloy/config.alloy" = {
     text = ''
-      local.file "hostname" {
-        filename = "/etc/hostname"
+      prometheus.exporter.unix "demo" { }
+
+      // Configure a prometheus.scrape component to collect unix metrics.
+      prometheus.scrape "demo" {
+        targets    = prometheus.exporter.unix.demo.targets
+        forward_to = [prometheus.remote_write.demo.receiver]
       }
 
-      prometheus.scrape "node_exporter" {
-        targets = ["localhost:9100"]
-
-        forward_to = [prometheus.remote_write.main.receiver]
-      }
-
-      prometheus.remote_write "main" {
+      prometheus.remote_write "demo" {
         endpoint {
-          url = "https://prometheus.example.com/api/v1/write"
-          basic_auth {
-            username = "your_username"
-            password = env("REMOTE_WRITE_PASSWORD")
-          }
+          url = "prometheus.nixk8s.phonkd.net"
         }
-      }
-
-      prometheus.relabel "add_hostname_label" {
-        targets = prometheus.scrape.node_exporter.targets
-
-        replacement   = local.file.hostname.content
-        target_label  = "instance"
-        action        = "replace"
       }
     '';
   };
