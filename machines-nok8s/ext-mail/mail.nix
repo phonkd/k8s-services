@@ -1,4 +1,12 @@
-{ config, pkgs, lib, ... }: {
+
+{ config, pkgs, lib, ... }:
+let
+  hashpwtmp = if builtins.pathExists config.sops.secrets."mail-secret".path then
+                    builtins.readFile config.sops.secrets."mail-secret".path
+                  else
+                    "/dev/null";
+in
+{
   sops.secrets."mail-secret" = {};
 
   imports = [
@@ -10,15 +18,13 @@
       sha256 = "0lpz08qviccvpfws2nm83n7m2r8add2wvfg9bljx9yxx8107r919";
     })
   ];
-  users.users.virtualMail.isSystemUser = lib.mkForce true;
-  users.users.virtualMail.isNormalUser = lib.mkForce false;
   mailserver = {
     enable = true;
     fqdn = "mail.phonkd.net";
     domains = [ "phonkd.net" ];
     loginAccounts = {
       "phonkd@phonkd.net" = {
-        hashedPasswordFile = config.sops.secrets."mail-secret".path;
+        hashedPasswordFile = config.hashpwtmp;
         aliases = ["test@phonkd.net"];
       };
     };
