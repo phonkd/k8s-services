@@ -8,7 +8,7 @@ let
 in
 {
   sops.secrets."mail-secret" = {
-    sopsFile = "secrets/mail-secret.yaml";
+    sopsFile = secrets/mail-secret.yaml;
   };
 
   imports = [
