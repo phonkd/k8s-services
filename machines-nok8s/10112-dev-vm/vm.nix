@@ -30,7 +30,7 @@
 
       prometheus.remote_write "demo" {
         endpoint {
-          url = "prometheus.nixk8s.phonkd.net"
+          url = "https://prometheus.nixk8s.phonkd.net"
         }
       }
     '';
