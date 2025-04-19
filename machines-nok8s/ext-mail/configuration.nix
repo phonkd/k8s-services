@@ -26,7 +26,8 @@
     extraGroups = [ "networkmanager" "wheel" "docker" ];
   };
   security.sudo.wheelNeedsPassword = false;
-  sops.age.keyFile = /home/root/.config/sops/age/keys.txt;
+  sops.age.keyFile = /root/.config/sops/age/keys.txt;
   sops.defaultSopsFile = ./secrets/secret.yaml;
   virtualisation.docker.enable = true;
+  system.stateVersion = lib.MkForce "24.05";
 }
