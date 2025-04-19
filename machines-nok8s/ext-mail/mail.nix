@@ -24,7 +24,7 @@ in
     domains = [ "phonkd.net" ];
     loginAccounts = {
       "phonkd@phonkd.net" = {
-        hashedPasswordFile = config.hashpwtmp;
+        hashedPasswordFile = hashpwtmp;
         aliases = ["test@phonkd.net"];
       };
     };
