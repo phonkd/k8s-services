@@ -11,7 +11,7 @@
     })
   ];
   users.users.virtualMail.isSystemUser = lib.mkForce true;
-  #users.users.virtualMail.isNormalUser = lib.mkForce false;
+  users.users.virtualMail.isNormalUser = lib.mkForce false;
   mailserver = {
     enable = true;
     fqdn = "mail.phonkd.net";
