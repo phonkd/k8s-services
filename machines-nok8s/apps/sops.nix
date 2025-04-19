@@ -11,7 +11,7 @@
       }}/modules/sops"
     ];
   sops.defaultSopsFormat = "yaml";
-  sops.age.keyFile = /home/phonkd/.config/sops/age/keys.txt;
-  sops.defaultSopsFile = ./ocis/secrets/secret.yaml;
+  # moved this to base cuz of hetzner vm sops.age.keyFile = /home/phonkd/.config/sops/age/keys.txt;
+  # sops.defaultSopsFile = ./ocis/secrets/secret.yaml;
 
 }
