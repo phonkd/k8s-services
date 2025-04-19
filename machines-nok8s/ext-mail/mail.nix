@@ -2,7 +2,7 @@
 { config, pkgs, lib, ... }:
 let
   hashpwtmp = if builtins.pathExists config.sops.secrets."mail-secret".path then
-                    builtins.readFile config.sops.secrets."mail-secret".path
+                    config.sops.secrets."mail-secret".path
                   else
                     "/dev/null";
 in
