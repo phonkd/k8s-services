@@ -11,6 +11,7 @@
     })
   ];
   users.users.virtualMail.isSystemUser = true;
+  users.users.virtualMail.isNormalUser = false;
   mailserver = {
     enable = true;
     fqdn = "mail.phonkd.net";
