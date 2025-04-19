@@ -21,7 +21,7 @@
         aliases = ["test@phonkd.net"];
       };
     };
-    certificateScheme = "acme-nginx";
+    certificateScheme = 3;
   };
   security.acme.acceptTerms = true;
   security.acme.defaults.email = "bhonk123@gmail.com";
