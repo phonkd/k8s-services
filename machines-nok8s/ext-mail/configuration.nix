@@ -29,5 +29,5 @@
   sops.age.keyFile = /root/.config/sops/age/keys.txt;
   sops.defaultSopsFile = ./secrets/secret.yaml;
   virtualisation.docker.enable = true;
-  system.stateVersion = lib.MkForce "24.05";
+  system.stateVersion = lib.mkForce "24.05";
 }
