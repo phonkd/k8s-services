@@ -13,7 +13,6 @@
       ../../machine-base/ssh.nix
       ../../machine-base/base.nix
       ../../machine-base/base-hardware-configuration.nix
-      ../apps/sops.nix
       ./wgez.nix
     ];
 }
