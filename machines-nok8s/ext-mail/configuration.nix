@@ -1,4 +1,4 @@
-{ ... }: {
+{ lib, ... }: {
   imports = [
     /etc/nixos/configuration.nix
     ./rebuildah.nix
