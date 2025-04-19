@@ -7,7 +7,9 @@ let
                     "/dev/null";
 in
 {
-  sops.secrets."mail-secret" = {};
+  sops.secrets."mail-secret" = {
+    sopsFile = "secrets/mail-secret.yaml";
+  };
 
   imports = [
     (builtins.fetchTarball {
